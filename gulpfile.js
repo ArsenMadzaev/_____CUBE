@@ -1,6 +1,8 @@
 const { src, dest, watch, parallel, series } = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const sccs = require('gulp-sass')(require('sass'));
+// const sass = require('gulp-sass')(require('sass'));
+// const sccs = require('gulp-sass')(require('sass'));
+const sass = require('gulp-dart-sass');
+const sccs = require('gulp-dart-sass');
 const concat = require('gulp-concat')
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify-es').default;
@@ -22,7 +24,7 @@ function clearDist() {
 
 function scripts() {
     return src([
-        'node_modules/jquery/dist/jquery.js',
+        // 'node_modules/jquery/dist/jquery.js',
         'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
