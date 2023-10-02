@@ -1,0 +1,87 @@
+// Генерируем переменные цветов в root
+:root{
+    @each $i, $color in $colors{
+        --color-#{$i}:#{$color};
+    }
+}
+// Генерируем font-face
+@each $key, $value in $font-face{
+    @font-face {
+        font-family: 'Gilroy';
+        src: url("fonts/Gilroy-#{$key}.woff2") format('woff2'), url("fonts/Gilroy-#{key}.woff");font-weight: $value;font-style: normal;font-display: swap;
+    }          
+}
+// Генерация колоночной системы как в Bootstrap col-#{size}-#{$i}
+@each $bp, $width in $grid-breakpoints {
+    @include media_query($width) {
+        @for $i from 1 through $grid-columns {
+            .col-#{$bp}-#{$i} {
+                @include col($i);
+            }
+        }
+    }
+}
+.col{
+    flex: 1 0 0%;
+}
+.col-auto{
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+// Генерируем container
+@mixin make-max-width-container($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints){
+    @each $breakpoint, $max-width in $max-widths{
+        @include media_query(map-get($breakpoints, $breakpoint)){
+            max-width: $max-width;
+        }
+    }
+}
+// Генерируем 4 колонки заранее (можно сделать хоть 12)
+@for $i from 1 through 4 {
+    .row-cols-#{$i} { 
+        flex: 1 0 auto;
+        width: (#{calc(100%/$i)});
+    }
+}
+// Container
+.container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: calc($grid-gutter-width - $grid-gap-side);
+    padding-left: calc($grid-gutter-width - $grid-gap-side);
+    @include make-max-width-container;
+}
+// container nopadding
+@each $bp, $width in $grid-breakpoints {
+    @include media_max($width) {
+            .container__nopadding-#{$bp}{
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+                padding-right: 0;
+                padding-left: 0;
+            }
+    }
+}
+// row
+.row{
+    @include row;
+}
+// row nopadding
+@each $bp, $width in $grid-breakpoints {
+    @include media_max($width) {
+            .row__nopadding-#{$bp} > * {
+                flex-shrink: 0;
+                padding-left: 0;
+                padding-right: 0;
+                max-width: 100%;
+            }
+    }
+}
+//Collapse
+.collapse:not(.show) {
+    display: none;
+}
