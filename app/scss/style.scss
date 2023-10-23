@@ -39,7 +39,7 @@ body {
 //header
 .header {
     min-height: rem(80px);
-    background-color: aqua;
+    @include color(background-color, white); // Убрать
     &__items {
         height: 100%;
         display: flex;
@@ -78,6 +78,7 @@ body {
     }
 }
 
+//footer
 .footer {
     &__wrapper { 
         display: flex;
