@@ -98,3 +98,94 @@
   font-size: #{$size};
   line-height: #{$line};
 }
+
+//Mixin for add responsible font-size/line-height properties
+@mixin font-size-get($tag) {
+  $number-of-breakpoints: 4;
+  $ratio-key-number: $number-of-breakpoints + 1;
+  $letter-spacing-key-number: $number-of-breakpoints + 2;
+  $hasTag: map-has-key($font-sizes, $tag);
+  $sizes: if(map-has-key($font-sizes, $tag), map-get($font-sizes, $tag), '1px');
+  $ratio: nth($sizes, $ratio-key-number);
+  $letterSpacing: nth($sizes, $letter-spacing-key-number);
+  $type-of-ratio: type-of($ratio);
+  $i: 0;
+  @each $size in $sizes {
+      $i: $i+1;
+      $b: nth($sizes, $i);
+
+      @if ($i <= $number-of-breakpoints) {
+          $brakpoints-keys: map-keys($grid-breakpoints);
+          @media (min-width: map-get($grid-breakpoints, nth($brakpoints-keys, $i))) {
+              font-size: $b  + px;
+              letter-spacing: $letterSpacing + em;
+              @if ($type-of-ratio == 'list') {
+                  $lh: nth($ratio, $i);
+                  line-height: $lh;
+              }
+              @if ($type-of-ratio == 'number') {
+                  line-height: $ratio;
+              }
+          }
+      }
+  }
+}
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $grid-breakpoints
+@mixin respond-from($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+      // Prints a media query based on the value
+      @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+          @content;
+      }
+  }
+      // If the key doesn't exist in the map
+  @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $grid-breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+      // Prints a media query based on the value
+      @media (max-width: (map-get($grid-breakpoints, $breakpoint) - 1)) {
+          @content;
+      }
+  }
+      // If the key doesn't exist in the map
+  @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$grid-breakpoints}`. "
+      + "Available breakpoints are: #{map-keys($grid-breakpoints)}.";
+  }
+}
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $grid-breakpoints
+@mixin respond-from-to($breakpoint-from, $breakpoint-to) {
+  // If the key exists in the map
+  @if map-has-key($grid-breakpoints, $breakpoint-from) and map_has_key($grid-breakpoints, $breakpoint-to) {
+      // Prints a media query based on the value
+      @media (min-width: map-get($grid-breakpoints, $breakpoint-from)) and (max-width: (map_get($grid-breakpoints, $breakpoint-to) - 1)) {
+          @content;
+      }
+  }
+      // If the key doesn't exist in the map
+  @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint-from}` or `#{$breakpoint-to}`. "
+      + "Available breakpoints are: #{map-keys($grid-breakpoints)}.";
+  }
+}
+@mixin font($size, $weight, $line){
+  font-size: #{$size};
+  font-weight: #{$weight};
+  line-height: #{$line};
+}
