@@ -23,7 +23,6 @@ $white: #fff !default;
 $silver: #9198A7 !default;
 $blue: #206FE6 !default;
 $dark-silver: #788399 !default;
-$footer-silver: #F2F3F5 !default;
 
 // Цвета для генерации
 $colors: (
@@ -32,7 +31,6 @@ $colors: (
 "silver": $silver,
 "blue": $blue,
 "dark-silver": $dark-silver,
-"footer-silver": $footer-silver,
 ) !default;
 // Для геренации font-face
 $font-face: (
@@ -42,23 +40,7 @@ $font-face: (
   Medium: 500,
   Bold: 700,
 ) !default;
-// Адаптивный шрифт
-$font-sizes: (
-        //   font-size,      (line-height)
-        //   xs, md, lg, xl, xxl
-        h1: (21, 44, 44, 65, (30px, 53px, 53px, 80px), 0),
-        h2: (21, 32, 32, 45, (30px, 38px, 38px, 54px), 0),
-        h3: (20, 26, 26, 30, (24px, 36px, 36px, 36px), 0),
-        h4: (16, 20, 20, 25, (19px, 24px, 24px, 30px), 0),
-        p1: (12, 18, 18, 20, (18px, 26px, 26px, 26px), 0),
-        menu: (24, 35, 14, 25, (29px, 43px, 16px, 20px), 0),
-        button: (16, 16, 16, 16, (19px, 19px, 19px, 19px), 0),
-        buttonBig: (20, 20, 20, 25, (27px, 27px, 27px, 27px), 0),
-        normal: (14, 16, 16, 18, (18px, 22px, 22px, 22px), 0),
-        footerContactTitle: (14, 16, 16, 16, (17px, 19px, 19px, 19px), 0),
-        bannerTitle: (17, 32, 32, 45, (25px, 38px, 38px, 54px), 0),
-        copiright: (12, 14, 14, 14, (14px, 16px, 16px, 16px), 0),
-) !default;
+
 // Переменные для grid сетки
 $container-max-width: 1320px !default;
 $grid-gap: 7px !default;
