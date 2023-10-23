@@ -99,7 +99,6 @@
   line-height: #{$line};
 }
 
-
 //Mixin for add responsible font-size/line-height properties
 @mixin font-size-get($tag) {
   $number-of-breakpoints: 4;

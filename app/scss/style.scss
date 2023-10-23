@@ -11,7 +11,7 @@
 //global
 html,
 body {
-    height: 100%
+    height: 100%;
 }
 
 body {
@@ -26,7 +26,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .main {
@@ -36,18 +36,17 @@ body {
 	flex: 0 0 auto;
 }
 
-
 //header
 .header {
     min-height: rem(80px);
-    @include color(background-color, white); // Убрать
+    background-color: aqua;
     &__items {
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 0;
-        gap: rem(20px);
+        padding: 1rem rem(5px);
+        gap: rem(10px);
         @include media("min", "sm") {
             gap: 0;
         }
@@ -60,6 +59,10 @@ body {
             justify-content: space-between;
             width: 60%;
         }
+    }
+
+    &__logo {
+        min-width: 125px;
     }
 
     &__menu-button {
@@ -155,8 +158,10 @@ body {
 .button {
     @include color(background-color, blue);
     @include color(color, white);
-    border-radius: 1.5rem;
+    border-radius: rem(30px);
     border: 0;
-    padding: 0 rem(20px);
+    padding: rem(10px) rem(10px);
     min-height: rem(47px);
+    font-weight: 600;
+    font-size: rem(16px);
 }
