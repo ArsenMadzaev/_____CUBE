@@ -84,7 +84,7 @@ body {
         flex-direction: column;
     }
 
-    &__tools {
+    &__tools-inner {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -110,13 +110,16 @@ body {
     }
 
     &__contacts {
+        @include font-size-get(footerContactTitle);
+        @include color(background-color, footer-silver);
+    }
+
+    &__contacts-inner {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: rem(25px) 0;
         gap: rem(25px);
-        @include font-size-get(footerContactTitle);
-        @include color(background-color, footer-silver);
     }
 
     &__contact-title {
@@ -137,7 +140,7 @@ body {
         @include color(color, black);
     }
 
-    &__copyright {
+    &__copyright-inner {
         display: flex;
         padding: rem(20px) 0;
         flex-direction: column;
