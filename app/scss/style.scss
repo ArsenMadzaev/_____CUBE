@@ -39,7 +39,7 @@ body {
 //header
 .header {
     min-height: rem(80px);
-    background-color: aqua;
+    background-color: white;
     &__items {
         height: 100%;
         display: flex;
@@ -54,10 +54,49 @@ body {
     
     &__navbar {
         display: none;
-        @include media("min", "md") {
+        @include media("min", "xl") {
             display: flex;
             justify-content: space-between;
-            width: 60%;
+            width: 75%;
+        }
+    }
+
+    &__navbar-links {
+        display: flex;
+        width: 55%;
+        justify-content: space-evenly;
+    }
+
+    &__navbar-link {
+        font-weight: 500;
+        font-size: rem(15px);
+        line-height: rem(18px);
+        text-transform: uppercase;
+
+        &:hover {
+            @include color(color, blue);
+        }
+    }
+    
+    &__navbar-number {
+        font-weight: 600;
+        font-size: rem(20px);
+        line-height: rem(24px);
+        padding-right: rem(30px);
+    }
+
+    &__mobile-buttons {
+        display: flex;
+        width: 146px;
+        justify-content: flex-end;
+        gap: rem(10px);
+
+        @include media("min", "sm") {
+            gap: rem(20px);
+        }
+
+        @include media("min", "xl") {
+            display: none;
         }
     }
 
@@ -66,30 +105,65 @@ body {
     }
 
     &__menu-button {
-        @include media("min", "md") {
+        @include media("min", "xl") {
             display: none;
         }
     }
 
     &__call-button {
-        @include media("min", "md") {
+        @include media("min", "xl") {
             display: none;
         }
     }
 }
 
 .footer {
+    //mobile
+
     &__wrapper { 
         display: flex;
         flex-direction: column;
     }
 
-    &__tools-inner {
+    &__menu-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: rem(20px);
+    }
+
+    &__menu-item--visibility {
+        display: none;
+    }
+    
+    &__menu-navbar {
+        display: flex;
+        justify-content: center;
         margin-bottom: rem(44px);
+    }
+
+    &__menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20px);
+    }
+
+    &__list-item {
+        font-weight: 400;
+        font-size: rem(18px);
+        line-height: rem(21px);
+
+        &:hover {
+            @include color(color, blue);
+        }
+
+        &--bold {
+            font-weight: 700;
+            font-size: rem(22px);
+            line-height: rem(27px);
+        }
+
+
     }
 
     &__social-bar {
@@ -151,9 +225,39 @@ body {
     &__copyright-item {
         display: block;
         text-align: center;
-        padding: 0 rem(20px);
         @include color(color, silver);
         @include font-size-get(copiright);
+    }
+
+    //Media query
+
+    @include media(min, "xl") {
+        &__menu-item--visibility {
+            display: block;   
+        }
+
+        &__menu-navbar {
+            justify-content: space-between;
+        }
+
+        &__contacts-inner {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        &__contact-title {
+            text-align: left;
+        }
+
+        &__contact-content {
+            text-align: left;
+        }
+
+        &__copyright-inner {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -162,6 +266,8 @@ body {
     @include color(background-color, blue);
     @include color(color, white);
     border-radius: rem(30px);
+    width: 200px;
+    min-width: 100px;
     border: 0;
     padding: rem(10px) rem(10px);
     min-height: rem(47px);
