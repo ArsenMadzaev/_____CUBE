@@ -69,31 +69,31 @@ function styles() {
         .pipe(browserSync.stream())
 }
 
-// function svgSprites() {
-//    return src('app/svg/svg-symbols.svg')
-//         .pipe(cheerio({
-//             run: function ($) {
-//                 $('[fill]').removeAttr('fill');
-//                 $('[stroke]').removeAttr('stroke');
-//                 $('[style]').removeAttr('style');
-//             },
-//             parserOptions: {xmlMode: true}
-//         }))
-//         .pipe(svgSprites({
-//             mode: {
-//                 svg: {
-//                     dimensionAttributes: true
-//                 },
-//                 symbol: {
-//                     sprite: './svg-symbols.svg',
-//                 }
-//             },
+function svgSprites() {
+   return src('app/svg/*.svg')
+        .pipe(cheerio({
+            run: function ($) {
+                // $('[fill]').removeAttr('fill');
+                // $('[stroke]').removeAttr('stroke');
+                $('[style]').removeAttr('style');
+            },
+            parserOptions: {xmlMode: true}
+        }))
+        .pipe(svgSprite({
+            mode: {
+                svg: {
+                    dimensionAttributes: true
+                },
+                symbol: {
+                    sprite: './svg-symbols.svg',
+                }
+            },
 
-//         }))
-//         .pipe(replace('<?xml version="1.0" encoding="utf-8"?>', ''))
-//         .pipe(dest('app/svg' + '/svgmin/'))
-//         .pipe(touch());
-// }
+        }))
+        .pipe(replace('<?xml version="1.0" encoding="utf-8"?>', ''))
+        .pipe(dest('app/svg'))
+        .pipe(touch());
+}
 
 function build() {
     return src([
@@ -111,7 +111,7 @@ function watching() {
     watch(['app/*.html']).on('change', browserSync.reload);
 }
 
-//exports.svgSprites = svgSprites;
+exports.svgSprites = svgSprites;
 exports.styles = styles;
 exports.watching = watching
 exports.browsersync = browsersync;
@@ -120,4 +120,4 @@ exports.images = images;
 exports.clearDist = clearDist
 
 exports.build = series(clearDist, images, build);
-exports.default = parallel(styles, scripts, browsersync, watching); //svgSprites
+exports.default = parallel(styles, scripts, browsersync, watching, svgSprites); //svgSprites

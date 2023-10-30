@@ -9,58 +9,77 @@
 </head>
 
 <body>
+    <!-- header -->
     <header class="header">
+        <div x-cloak x-data="sidebar" class="header__mobile-menu">
+            <div class="header__sidebar-wrapper">
+                <div class="header__sidebar-inner" :class="position">
+                    <div class="header__sidebar-item">
+                        <button @click="moveLeft($el)">Menu item</button>
+                    </div>
+                    <div class="header__sidebar-item">
+                        <div class="flex flex-col">
+                            <button class="flex justify-start" @click="moveRight($el)">Go back</button>
+                            <button class="flex justify-start" @click=moveLeft($el)>Menu item</button>
+                        </div>
+                    </div>
+                    <div class="header__sidebar-item">
+                        <div class="flex flex-col">
+                            <button class="flex justify-start" @click="moveRight($el)">Go back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container container__nopadding-sm">
             <div class="header__items">
                 <div class="header__logo">
                     <a href="#">
-                        <img src="images/logo/logo.svg" alt="logo">
+                        <img src="svg/logo.svg" alt="logo">
                     </a>
                 </div>
                 <nav class="header__navbar">
-                    <div class="header__navbar-links">
-                        <a href="#" class="header__navbar-link">Услуги</a>
-                        <a href="#" class="header__navbar-link">Кейсы</a>
-                        <a href="#" class="header__navbar-link">О нас</a>
-                        <a href="#" class="header__navbar-link">Блог</a>
-                        <a href="#" class="header__navbar-link">Контакты</a>
-                    </div>
+                    <ul class="header__navbar-list" role="list">
+                        <li class="header__navbar-item"><a href="#">Услуги</a></li>
+                        <li class="header__navbar-item"><a href="#">Кейсы</a></li>
+                        <li class="header__navbar-item"><a href="#">О нас</a></li>
+                        <li class="header__navbar-item"><a href="#">Блог</a></li>
+                        <li class="header__navbar-item"><a href="#">Контакты</a></li>
+                    </ul>
                     <div class="header__navbar-number">8 (800) 201-96-41</div>
                 </nav>
                 <button class="button">Обсудить проект</button>
                 <div class="header__mobile-buttons">
                     <div class="header__call-button">
-                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.96247 8.93655C5.30948 14.0502 9.48594 18.1156 14.6778 20.3185L14.6942 20.3255L15.6972 20.7728C16.9744 21.3422 18.4757 20.9378 19.2945 19.8038L20.968 17.4864C21.0702 17.3448 21.0438 17.148 20.908 17.0383L17.9866 14.6801C17.8414 14.5629 17.6278 14.5902 17.5167 14.7402L16.3797 16.2754C16.1036 16.6482 15.6049 16.7777 15.1824 16.5864C11.3002 14.8285 8.18051 11.707 6.42361 7.82256C6.23239 7.39979 6.36187 6.90083 6.73447 6.62454L8.26873 5.48687C8.41865 5.37571 8.44593 5.16203 8.32877 5.01672L5.97161 2.0932C5.86206 1.95733 5.66542 1.93094 5.52395 2.03312L3.19535 3.71514C2.0545 4.53921 1.65273 6.05395 2.23506 7.3356L2.96168 8.93485C2.96195 8.93542 2.96221 8.93599 2.96247 8.93655ZM13.9006 22.1295C8.25923 19.7334 3.72182 15.3147 1.17162 9.75721L1.17009 9.75387L0.441943 8.15127C-0.528607 6.01517 0.141006 3.49061 2.04242 2.11716L4.37102 0.435141C5.3613 -0.280161 6.73778 -0.0954191 7.50465 0.855714L9.86181 3.77923C10.682 4.79642 10.4909 6.29217 9.44151 7.07032L8.56235 7.72223C10.0474 10.6055 12.4011 12.9605 15.2826 14.4464L15.9342 13.5667C16.7119 12.5167 18.2068 12.3256 19.2234 13.1462L22.1448 15.5044C23.0956 16.272 23.2801 17.6498 22.5646 18.6406L20.8911 20.958C19.5263 22.8481 17.0243 23.522 14.8956 22.5731L13.9006 22.1295Z"
-                                fill="#152647" />
+                        <svg role="img" width="23" height="23">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#phone"></use>
                         </svg>
                     </div>
                     <div class="header__menu-button">
-                        <svg width="28" height="21" viewBox="0 0 28 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28 10.3871C28 9.63884 27.3934 9.03226 26.6452 9.03226H1.35484C0.606581 9.03226 0 9.63884 0 10.3871C0 11.1354 0.606581 11.7419 1.35484 11.7419H26.6452C27.3934 11.7419 28 11.1354 28 10.3871Z"
-                                fill="#152647" />
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28 1.35484C28 0.606582 27.3934 0 26.6452 0H1.35484C0.606581 0 0 0.606582 0 1.35484C0 2.1031 0.606581 2.70968 1.35484 2.70968H26.6452C27.3934 2.70968 28 2.1031 28 1.35484Z"
-                                fill="#152647" />
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28 19.4194C28 18.6711 27.3934 18.0645 26.6452 18.0645H1.35484C0.606581 18.0645 0 18.6711 0 19.4194C0 20.1676 0.606581 20.7742 1.35484 20.7742H26.6452C27.3934 20.7742 28 20.1676 28 19.4194Z"
-                                fill="#152647" />
+                        <svg role="img" width="28" height="21">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#burger"></use>
                         </svg>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <main class="main"></main>
+    <!-- END header -->
+    
+    <!-- main -->
+    <main class="main">
+
+    </main>
+    <!-- END main -->
+
+    <!-- footer -->
     <footer class="footer">
         <section class="footer__wrapper">
             <article class="footer__menu">
                 <div class="container">
                     <div class="footer__menu-navbar">
                         <div class="footer__menu-item footer__menu-item--visibility">
-                            <ul class="footer__menu-list">
+                            <ul class="footer__menu-list" role="list">
                                 <li class="footer__list-item footer__list-item--bold"><a href="#">Разработка</a></li>
                                 <li class="footer__list-item"><a href="#">Интернет-магазин</a></li>
                                 <li class="footer__list-item"><a href="#">Корпоративный сайт</a></li>
@@ -70,7 +89,7 @@
                             </ul>
                         </div>
                         <div class="footer__menu-item footer__menu-item--visibility">
-                            <ul class="footer__menu-list">
+                            <ul class="footer__menu-list" role="list">
                                 <li class="footer__list-item footer__list-item--bold"><a href="#">Продвижение</a></li>
                                 <li class="footer__list-item"><a href="#">Поисковое продвижение</a></li>
                                 <li class="footer__list-item"><a href="#">SEO продвижение</a></li>
@@ -78,14 +97,14 @@
                             </ul>
                         </div>
                         <div class="footer__menu-item footer__menu-item--visibility">
-                            <ul class="footer__menu-list">
+                            <ul class="footer__menu-list" role="list">
                                 <li class="footer__list-item footer__list-item--bold"><a href="#">Интеграция</a></li>
                                 <li class="footer__list-item"><a href="#">Интеграция с 1С</a></li>
                                 <li class="footer__list-item"><a href="#">Интеграция с CRM</a></li>
                             </ul>
                         </div>
                         <div class="footer__menu-item footer__menu-item--visibility">
-                            <ul class="footer__menu-list">
+                            <ul class="footer__menu-list" role="list">
                                 <li class="footer__list-item footer__list-item--bold"><a href="#">Техподдержка</a></li>
                                 <li class="footer__list-item footer__list-item--bold"><a href="#">Дизайн</a></li>
                                 <li class="footer__list-item footer__list-item--bold"><a href="#">Кейсы</a></li>
@@ -98,47 +117,24 @@
                         <div class="footer__menu-item">
                             <button class="button">Обсудить проект</button>
                             <a class="footer__howgetto" href="">Как проехать
-                                <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1456_3477)">
-                                        <path
-                                            d="M12.5 10.5806C11.8548 10.5806 11.2097 10.5806 10.5645 10.5806C10.5645 8.12903 10.5645 5.80645 10.5645 3.35484C7.59677 6.32258 4.75806 9.16129 1.91935 12C1.40323 11.4839 1.01613 11.0968 0.5 10.5806C3.33871 7.74194 6.17742 4.90323 9.14516 1.93548C6.69355 1.93548 4.24193 1.93548 1.91935 1.93548C1.91935 1.29032 1.91935 0.645162 1.91935 -6.2042e-08C5.40323 -2.14327e-07 9.01613 -3.72252e-07 12.5 -5.24537e-07C12.5 3.48387 12.5 7.09677 12.5 10.5806Z"
-                                            fill="#206FE6" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1456_3477">
-                                            <rect width="12" height="12" fill="white"
-                                                transform="translate(0.5 12) rotate(-90)" />
-                                        </clipPath>
-                                    </defs>
+                                <svg role="img" width="13" height="12">
+                                    <use xlink:href="svg/symbol/svg-symbols.svg#arrow"></use>
                                 </svg>
                             </a>
                             <div class="footer__social-bar">
                                 <a class="footer__social-item" href="">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="50" height="50" rx="10" fill="#206FE6" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M32.047 34.3449L32.0479 34.3426L32.0707 34.2856L36 14.4753V14.4109C36 13.9174 35.8176 13.4865 35.4208 13.228C35.0734 13.0017 34.6741 12.9856 34.3941 13.0069C34.0979 13.0294 33.8187 13.1033 33.6253 13.1648C33.5259 13.1965 33.4426 13.227 33.3831 13.25C33.3532 13.2616 33.329 13.2715 33.3114 13.2788L33.2941 13.2861L11.3863 21.8802L11.3803 21.8823C11.3685 21.8866 11.3528 21.8925 11.3339 21.8998C11.2962 21.9145 11.245 21.9355 11.1847 21.9628C11.0664 22.0164 10.903 22.0991 10.7372 22.2126C10.4557 22.4054 9.91965 22.8618 10.0102 23.5854C10.0851 24.1847 10.4983 24.5654 10.7768 24.7624C10.9261 24.8681 11.069 24.9443 11.1735 24.9941C11.2265 25.0193 11.2716 25.0386 11.3051 25.0523C11.3219 25.0591 11.336 25.0646 11.3468 25.0687L11.3608 25.0739L11.3697 25.0772L15.2026 26.3676C15.1896 26.6081 15.2135 26.8533 15.2773 27.0952L17.1972 34.3783C17.4248 35.2419 18.2061 35.8434 19.0991 35.8428C19.8996 35.8422 20.6096 35.3579 20.9112 34.6354L23.9087 31.4303L29.0568 35.3772L29.13 35.4092C29.5977 35.6133 30.0347 35.6779 30.4343 35.6233C30.8332 35.5688 31.1503 35.4015 31.3884 35.211C31.6228 35.0235 31.7834 34.8119 31.8844 34.6526C31.9357 34.5716 31.974 34.5005 32.0005 34.4469C32.0139 34.4201 32.0244 34.3973 32.0322 34.3796L32.0421 34.3567L32.0456 34.3483L32.047 34.3449ZM17.1777 26.5942C17.1341 26.4287 17.2026 26.2539 17.3471 26.1622L30.3478 17.9061C30.3478 17.9061 31.1124 17.4419 31.0851 17.9061C31.0851 17.9061 31.2216 17.9881 30.8118 18.3704C30.4232 18.7334 21.5459 27.3041 20.6476 28.1713C20.5958 28.2214 20.5648 28.2788 20.5466 28.3486L19.0976 33.8773L17.1777 26.5942Z"
-                                            fill="white" />
+                                    <svg role="img" width="50" height="50">
+                                        <use xlink:href="svg/symbol/svg-symbols.svg#telegram"></use>
                                     </svg>
                                 </a>
                                 <a class="footer__social-item" href="">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="50" height="50" rx="10" fill="#00BD1E" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M13.1306 36.237C13.0238 36.6247 13.377 36.9825 13.7661 36.8809L19.7809 35.3099C21.6795 36.3383 23.8171 36.8846 25.9936 36.8846H26C33.1619 36.8846 39 31.0804 39 23.9456C39 20.4874 37.6501 17.2349 35.1962 14.7923C32.7422 12.3498 29.4808 11 25.9999 11C18.8381 11 13 16.8043 13 23.9392C12.9992 26.2089 13.5983 28.439 14.7372 30.4054L13.1306 36.237ZM21.8798 17.7492C22.1186 17.7556 22.3834 17.7685 22.6354 18.3277C22.8024 18.7 23.0839 19.3854 23.3131 19.9437C23.4915 20.3782 23.6383 20.7357 23.6751 20.8089C23.759 20.976 23.8107 21.1688 23.7009 21.3937C23.6879 21.4203 23.6757 21.4456 23.6639 21.4701C23.5759 21.6528 23.5132 21.7829 23.3651 21.953C23.3042 22.0229 23.2408 22.0995 23.1776 22.1759C23.0664 22.3102 22.956 22.4437 22.8613 22.5379C22.6935 22.7049 22.519 22.8851 22.7128 23.2193C22.9066 23.5535 23.5847 24.6526 24.5857 25.5397C25.6618 26.4978 26.5976 26.9015 27.0707 27.1056C27.1625 27.1452 27.2369 27.1773 27.2915 27.2045C27.6274 27.3716 27.8275 27.3459 28.0212 27.121C28.2151 26.8959 28.8608 26.1438 29.0869 25.8096C29.3065 25.4754 29.5324 25.5269 29.8425 25.6425C30.1524 25.7582 31.8057 26.5681 32.1415 26.7352C32.2078 26.7683 32.2699 26.798 32.3275 26.8256C32.5611 26.9377 32.7199 27.0138 32.7873 27.1274C32.8712 27.2687 32.8712 27.9373 32.5935 28.7214C32.3094 29.5056 30.9403 30.2577 30.3203 30.3155C30.2616 30.3211 30.2032 30.3281 30.1431 30.3354C29.5749 30.4041 28.8537 30.4914 26.2841 29.4799C23.1177 28.2348 21.0276 25.1455 20.605 24.5209C20.5717 24.4716 20.5487 24.4377 20.5364 24.4212L20.5293 24.4116C20.337 24.1544 19.1609 22.5806 19.1609 20.9568C19.1609 19.4032 19.9262 18.5944 20.2752 18.2254C20.2974 18.2021 20.3178 18.1805 20.3363 18.1605C20.6462 17.8263 21.0079 17.7428 21.2339 17.7428C21.46 17.7428 21.686 17.7428 21.8798 17.7492Z"
-                                            fill="white" />
+                                    <svg role="img" width="50" height="50">
+                                        <use xlink:href="svg/symbol/svg-symbols.svg#whatsapp"></use>
                                     </svg>
                                 </a>
                                 <a class="footer__social-item" href="">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="50" height="50" rx="10" fill="#206FE6" />
-                                        <path
-                                            d="M26.3397 35.0909C16.0899 35.0909 10.2436 27.9247 10 16H15.1343C15.3029 24.7524 19.088 28.4597 22.0861 29.2241V16H26.9207V23.5484C29.8814 23.2236 32.9916 19.7838 34.0409 16H38.8755C38.0698 20.6628 34.6969 24.1026 32.2984 25.5168C34.6969 26.6634 38.5384 29.6637 40 35.0909H34.6782C33.5351 31.46 30.6871 28.6508 26.9207 28.2686V35.0909H26.3397Z"
-                                            fill="white" />
+                                    <svg role="img" width="50" height="50">
+                                        <use xlink:href="svg/symbol/svg-symbols.svg#vk"></use>
                                     </svg>
                                 </a>
                             </div>
@@ -184,9 +180,10 @@
                 </div>
             </article>
         </section>
-
     </footer>
+    <!-- END footer -->
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="js/main.min.js"></script>
 </body>
-
 </html>

@@ -36,6 +36,18 @@ body {
 	flex: 0 0 auto;
 }
 
+.logo-svg {
+    max-width: 146px;
+    width: 100%;
+    height: 46px;
+    @include color(fill, black);
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+
 //header
 .header {
     min-height: rem(80px);
@@ -61,13 +73,40 @@ body {
         }
     }
 
-    &__navbar-links {
+    &__mobile-menu {
+        height: 100vh;
+        background: #000;
+        display: flex;
+        z-index: 1000;
+        transform: translateX(0);
+    }
+
+    &__sidebar-wrapper{
+        overflow: hidden;
+        width: 10rem;
+        height: 20rem;
+        display: flex;
+    }
+
+    &__sidebar-inner{
+        transition-duration: 1s;
+        display: flex;
+        width: 100%;
+    }
+
+    &__sidebar-item{
+        transition-duration: 1s;
+        flex-shrink: 0;
+        width: 10rem;
+    }
+
+    &__navbar-list {
         display: flex;
         width: 55%;
         justify-content: space-evenly;
     }
 
-    &__navbar-link {
+    &__navbar-item {
         font-weight: 500;
         font-size: rem(15px);
         line-height: rem(18px);
@@ -105,12 +144,16 @@ body {
     }
 
     &__menu-button {
+        cursor: pointer;
+
         @include media("min", "xl") {
             display: none;
         }
     }
 
     &__call-button {
+        cursor: pointer;
+
         @include media("min", "xl") {
             display: none;
         }
@@ -171,12 +214,26 @@ body {
         gap: rem(13px);
     }
 
+    &__social-item {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
     &__howgetto {
         display: flex;
         align-items: center;
         gap: rem(12px);
         font-weight: 700;
         font-size: rem(22px);
+
+        &:hover svg{
+            transform: translate(2px, -2px);
+            transition: all 0.1s ease-in-out;
+        }
+        &:hover{
+            opacity: .9;
+        }
     }
 
     &__button {
@@ -229,7 +286,7 @@ body {
         @include font-size-get(copiright);
     }
 
-    //Media query
+    //Media querys
 
     @include media(min, "xl") {
         &__menu-item--visibility {
@@ -261,10 +318,13 @@ body {
     }
 }
 
-//blocks
+//----------BLOCKS-------------
+
+//button blocks
 .button {
     @include color(background-color, blue);
     @include color(color, white);
+    position: relative;
     border-radius: rem(30px);
     width: 200px;
     min-width: 100px;
@@ -273,4 +333,43 @@ body {
     min-height: rem(47px);
     font-weight: 600;
     font-size: rem(16px);
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &:disabled {
+        opacity: 1;
+    }
 }
+
+.loading {
+    @include color(color, blue);
+    @include color(background-color, blue);
+    &::after {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border: 4px solid white;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: button-loading-spinner 1s ease infinite;
+    }
+
+    @keyframes button-loading-spinner {
+        from {
+            transform: rotate(0turn);
+        }
+    
+        to {
+            transform: rotate(1turn);
+        }
+    }
+}
+//button blocks end
