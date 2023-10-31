@@ -65,13 +65,61 @@
         </div>
     </header>
     <!-- END header -->
-    
+
+    <aside>
+        <nav class="mobile-menu">
+            <div class="mobile-menu__head">
+                <div class="mobile-menu__title">
+                    <span>Меню</span>
+                </div>
+                <div class="mobile-menu__close">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 23.9993L24 1" stroke="#1D1D1D" stroke-linecap="round" />
+                        <path d="M1 1.0007L24 24" stroke="#1D1D1D" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+            <div class="mobile-menu__body">
+                <ul class="mobile-menu__items">
+                    <li class="mobile-menu__item">
+                        <div class="mobile-menu__item-link">
+                            <a href="#">Каталог</a>
+                        </div>
+                        <div class="mobile-menu__toggle" data-toggle="collapse" data-target="next">
+                            <svg width="27" height="13" viewBox="0 0 27 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L13.5 12L26 1" stroke="#1D1D1D" />
+                            </svg>
+                        </div>
+                        <ul class="header__menu--mob__submenu collapse catalog__lvl-1">
+                            <li class="header__menu--mob__submenu--link"><a href="#">Блузки</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Брюки</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Блейзеры</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Джемперы</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Брюки</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Водолазки</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Юбки</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Платья</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Кардиганы</a></li>
+                            <li class="header__menu--mob__submenu--link"><a href="#">Рубашки</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mobile-menu-social">
+
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+
     <!-- main -->
     <main class="main">
 
     </main>
     <!-- END main -->
 
+    <div class="overlay-blur"></div>
     <!-- footer -->
     <footer class="footer">
         <section class="footer__wrapper">
@@ -186,4 +234,5 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="js/main.min.js"></script>
 </body>
+
 </html>
