@@ -37,9 +37,9 @@ body {
 }
 
 .logo-svg {
-    max-width: 146px;
+    max-width: rem(146px);
     width: 100%;
-    height: 46px;
+    height: rem(46px);
     @include color(fill, black);
 }
 
@@ -54,8 +54,8 @@ body {
         height: 100%;
         position: fixed;
         display: block;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: brightness(0.5);
+        -webkit-backdrop-filter: brightness(0.5);
     }
 
     &.show__arrow{
@@ -99,17 +99,123 @@ body {
     top: 0;
     bottom: 0;
     left: 100vw;
+    overflow-y: auto;
     width: 100%;
     background-color: #fff;
     transition: transform .5s ease,width .5s ease;
     z-index: 103;
+    overflow: hidden;
     display: flex;
     margin: 0;
     flex-direction: column;
 
-    &__head {
+    &__wrapper {
+        transition: transform 0.9s ease-in-out;
+        height: 100%;
+        padding: rem(30px);
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30px);
+    }
+
+    &__item-link>a {
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        font-size: rem(17px);
+        line-height: rem(20px);
+    }
+
+    &__link>a {
+        display: block;
+        width: 100%;
+    }
+
+    &__link {
+        font-weight: 400;
+        font-size: rem(17px);
+        line-height: rem(20px);
+
+        &:hover {
+            @include color(color, blue)
+        }
+    }
+
+    &__next-lvl {
+        cursor: pointer;
+
+        &:hover {
+            @include color(color, blue)
+        }
+    }
+
+    &__close-lvl {
+        cursor: pointer;
+    }
+
+    &__close {
+        cursor: pointer;
+    }
+    
+    &__title {
+        font-weight: 400;
+        font-size: rem(22px);
+        line-height: rem(26px);
+        @include color(color, blue)
+    }
+
+    &__inner-items {
+        left: 100%;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border: medium none;
+        box-shadow: none;
+        visibility: visible;
+        opacity: 1;
+        display: none;
+        position: absolute;
+        z-index: 5;
+        background: #FFF;
+        margin: 0;
+        padding: rem(30px);
+    }
+    
+    &__head, &__inner-head {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: rem(30px) 0;
+        height: 100%;
+    }
+
+    &__social {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10px);
+    }
+
+    &__social-item {
+        display: flex;
+        flex-direction: column;
+        gap: rem(5px);
+
+        &--subtitle {
+            font-weight: 300;
+            font-size: rem(13px);
+            line-height: rem(15px);
+            @include color(color, black);
+            margin: 0;
+        }
     }
 
     @include media("min", "md") {
@@ -191,7 +297,7 @@ body {
 
     &__mobile-buttons {
         display: flex;
-        width: 146px;
+        width: rem(146px);
         justify-content: flex-end;
         gap: rem(10px);
 
@@ -205,7 +311,7 @@ body {
     }
 
     &__logo {
-        min-width: 125px;
+        min-width: rem(125px);
     }
 
     &__menu-button {
@@ -302,7 +408,7 @@ body {
     }
 
     &__button {
-        min-width: 200px;
+        min-width: rem(200px);
     }
 
     &__contacts {
@@ -442,7 +548,34 @@ body {
     }
 }
 
+
 //----------BLOCKS-------------
+
+.show {
+    display: block;
+}
+
+.phone-link {
+    font-weight: 600;
+    font-size: rem(20px);
+    line-height: rem(24px);
+    @include color(color, black);
+
+    &:hover {
+        @include color(color, blue)
+    }
+}
+
+.mail-link {
+    font-weight: 300;
+    font-size: rem(16px);
+    line-height: rem(18px);
+    @include color(color, black);
+
+    &:hover {
+        @include color(color, blue)
+    }
+}
 
 //button blocks
 .button {
@@ -450,8 +583,8 @@ body {
     @include color(color, white);
     position: relative;
     border-radius: rem(30px);
-    width: 200px;
-    min-width: 100px;
+    width: rem(200px);
+    min-width: rem(100px);
     border: 0;
     padding: rem(10px) rem(10px);
     min-height: rem(47px);
@@ -473,8 +606,8 @@ body {
     &::after {
         content: "";
         position: absolute;
-        width: 26px;
-        height: 26px;
+        width: rem(26px);
+        height: rem(26px);
         top: 0;
         left: 0;
         right: 0;

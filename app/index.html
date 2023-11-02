@@ -68,45 +68,121 @@
 
     <aside>
         <nav class="mobile-menu">
-            <div class="mobile-menu__head">
-                <div class="mobile-menu__title">
-                    <span>Меню</span>
+            <div class="mobile-menu__wrapper">
+                <div class="mobile-menu__head">
+                    <div class="mobile-menu__title">
+                        <span>Меню</span>
+                    </div>
+                    <div class="mobile-menu__close">
+                        <svg role="img" width="21" height="21">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#closeButton"></use>
+                        </svg>
+                    </div>
                 </div>
-                <div class="mobile-menu__close">
-                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 23.9993L24 1" stroke="#1D1D1D" stroke-linecap="round" />
-                        <path d="M1 1.0007L24 24" stroke="#1D1D1D" stroke-linecap="round" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mobile-menu__body">
-                <ul class="mobile-menu__items">
-                    <li class="mobile-menu__item">
-                        <div class="mobile-menu__item-link">
-                            <a href="#">Каталог</a>
+                <div class="mobile-menu__body">
+                    <ul class="mobile-menu__items">
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__next-lvl">Услуги</a>
+                            </div>
+                            <ul class="mobile-menu__inner-items">
+                                <div class="mobile-menu__inner-head">
+                                    <div class="mobile-menu__title">
+                                        <span>Услуги</span>
+                                    </div>
+                                    <div class="mobile-menu__close-lvl">
+                                        <svg role="img" width="12" height="21">
+                                            <use xlink:href="svg/symbol/svg-symbols.svg#backButton"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__body">
+                                    <div class="mobile-menu__items">
+                                        <li class="mobile-menu__link"><a href="#">Веб-разработка</a></li>
+                                        <li class="mobile-menu__link"><a href="#">Продвижение</a></li>
+                                        <li class="mobile-menu__link"><a href="#">Интеграция</a></li>
+                                        <li class="mobile-menu__link"><a href="#">Техподдержка</a></li>
+                                        <li class="mobile-menu__link"><a href="#">Дизайн</a></li>
+                                    </div>
+                                    <div class="mobile-menu__social">
+                                        <div class="mobile-menu__social-item">
+                                            <a class="phone-link" href="tel:+88002019641">8 (800) 201-96-41</a>
+                                            <p class="mobile-menu__social-item--subtitle">Звонок бесплатный по России
+                                            </p>
+                                        </div>
+                                        <div class="mobile-menu__social-item">
+                                            <a class="mail-link"
+                                                href="mailto:info@agency-cube.ru">info@agency-cube.ru</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__next-lvl">Кейсы</a>
+                            </div>
+                            <ul class="mobile-menu__inner-items">
+                                <div class="mobile-menu__inner-head">
+                                    <div class="mobile-menu__title">
+                                        <span>Кейсы</span>
+                                    </div>
+                                    <div class="mobile-menu__close-lvl">
+                                        <svg role="img" width="12" height="21">
+                                            <use xlink:href="svg/symbol/svg-symbols.svg#backButton"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__body">
+                                    <div class="mobile-menu__items">
+                                        <li class="mobile-menu__link"><a href="#">Bossa Nova</a></li>
+                                        <li class="mobile-menu__link"><a href="#">Sahar art lab</a></li>
+                                        <li class="mobile-menu__link"><a href="#">PRO Туризм</a></li>
+                                    </div>
+                                    <div class="mobile-menu__social">
+                                        <div class="mobile-menu__social-item">
+                                            <a class="phone-link" href="tel:+88002019641">8 (800) 201-96-41</a>
+                                            <p class="mobile-menu__social-item--subtitle">Звонок бесплатный по России
+                                            </p>
+                                        </div>
+                                        <div class="mobile-menu__social-item">
+                                            <a class="mail-link"
+                                                href="mailto:info@agency-cube.ru">info@agency-cube.ru</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">О нас</a>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">Блог</a>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">Цены</a>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">Контакты</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu__social">
+                        <div class="mobile-menu__social-item">
+                            <a class="phone-link" href="tel:+88002019641">8 (800) 201-96-41</a>
+                            <p class="mobile-menu__social-item--subtitle">Звонок бесплатный по России</p>
                         </div>
-                        <div class="mobile-menu__toggle" data-toggle="collapse" data-target="next">
-                            <svg width="27" height="13" viewBox="0 0 27 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1L13.5 12L26 1" stroke="#1D1D1D" />
-                            </svg>
+                        <div class="mobile-menu__social-item">
+                            <a class="mail-link" href="mailto:info@agency-cube.ru">info@agency-cube.ru</a>
                         </div>
-                        <ul class="header__menu--mob__submenu collapse catalog__lvl-1">
-                            <li class="header__menu--mob__submenu--link"><a href="#">Блузки</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Брюки</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Блейзеры</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Джемперы</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Брюки</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Водолазки</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Юбки</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Платья</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Кардиганы</a></li>
-                            <li class="header__menu--mob__submenu--link"><a href="#">Рубашки</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="mobile-menu-social">
-
+                    </div>
                 </div>
             </div>
         </nav>
