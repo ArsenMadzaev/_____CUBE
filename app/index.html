@@ -11,26 +11,6 @@
 <body>
     <!-- header -->
     <header class="header">
-        <!-- <div x-cloak x-data="sidebar" class="header__mobile-menu">
-            <div class="header__sidebar-wrapper">
-                <div class="header__sidebar-inner" :class="position">
-                    <div class="header__sidebar-item">
-                        <button @click="moveLeft($el)">Menu item</button>
-                    </div>
-                    <div class="header__sidebar-item">
-                        <div class="flex flex-col">
-                            <button class="flex justify-start" @click="moveRight($el)">Go back</button>
-                            <button class="flex justify-start" @click=moveLeft($el)>Menu item</button>
-                        </div>
-                    </div>
-                    <div class="header__sidebar-item">
-                        <div class="flex flex-col">
-                            <button class="flex justify-start" @click="moveRight($el)">Go back</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="container container__nopadding-sm">
             <div class="header__items">
                 <div class="header__logo">
@@ -40,7 +20,38 @@
                 </div>
                 <nav class="header__navbar">
                     <ul class="header__navbar-list" role="list">
-                        <li class="header__navbar-item"><a href="#">Услуги</a></li>
+                        <li class="header__navbar-item">
+                            <a href="#">Услуги</a>
+                            <div class="header__dropdown-wrapper">
+                                <!-- drop down 1 lvl -->
+                                <ul class="header__dropdown-list">
+                                    <li class="header__dropdown-item dropdown">
+                                        <a href="#">Веб-разработка</a>
+                                        <!-- drop down 2 lvl -->
+                                        <ul class="header__dropdown-list--lvl2">
+                                            <h5 class="header__dropdown-title--lvl2">Веб-разработка</h5>
+                                            <li class="header__dropdown-item"><a href="#">Интернет-магазин</a></li>
+                                            <li class="header__dropdown-item"><a href="#">Корпоративный портал</a></li>
+                                            <li class="header__dropdown-item"><a href="#">Сайт-каталог</a></li>
+                                            <li class="header__dropdown-item"><a href="#">Landing-page</a></li>
+                                            <li class="header__dropdown-item"><a href="#">Сайты на Tilda</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__dropdown-item"><a href="#">Продвижение</a></li>
+                                    <li class="header__dropdown-item dropdown">
+                                        <a href="#">Интеграция</a>
+                                        <!-- drop down 2 lvl -->
+                                        <ul class="header__dropdown-list--lvl2">
+                                            <h5 class="header__dropdown-title--lvl2">Веб</h5>
+                                            <li class="header__dropdown-item"><a href="#">Интернет-магазин</a></li>
+                                            <li class="header__dropdown-item"><a href="#">Корпоративный портал</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__dropdown-item"><a href="#">Техподдержка</a></li>
+                                    <li class="header__dropdown-item"><a href="#">Дизайн</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="header__navbar-item"><a href="#">Кейсы</a></li>
                         <li class="header__navbar-item"><a href="#">О нас</a></li>
                         <li class="header__navbar-item"><a href="#">Блог</a></li>

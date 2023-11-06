@@ -282,12 +282,68 @@ body {
         font-size: rem(15px);
         line-height: rem(18px);
         text-transform: uppercase;
+        position: relative;
 
-        &:hover {
+        & a:hover {
             @include color(color, blue);
         }
     }
     
+    &__dropdown-wrapper {
+        z-index: 101;
+        opacity: 0;
+        top: 200%;
+        visibility: hidden;
+        position: absolute;
+        border-bottom-left-radius: rem(10px);
+        border-bottom-right-radius: rem(10px);
+        @include color(background-color, white);
+        box-shadow: 0 5px 10px rgba($color: #000000, $alpha: .1);
+        padding: rem(50px) 0 rem(100px) rem(50px);
+        transition: all 0.5s;
+    }
+
+    &__navbar-item:hover > &__dropdown-wrapper {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__dropdown-item:hover > &__dropdown-list--lvl2 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown:hover {
+        width: 550px;
+    }
+
+    &__dropdown-list {
+        min-width: 250px;
+        text-transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: rem(10px);
+    }
+
+    &__dropdown-list > &__dropdown-item {
+        line-height: rem(40px);
+    }
+
+    &__dropdown-list--lvl2 {
+        min-height: 75%;
+        visibility: hidden;
+        width: 300px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: rem(10px);
+        top: 0;
+        left: 50%;
+        border-left: 1px solid #D9D9D9;
+        padding-left: rem(50px);
+        margin: 3.125rem 0 3.125rem 0;
+    }
+
     &__navbar-number {
         font-weight: 600;
         font-size: rem(20px);
