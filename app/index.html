@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/plugins.css">
 </head>
 
 <body>
@@ -202,7 +203,15 @@
 
     <!-- main -->
     <main class="main">
-
+        <section class="main-banner">
+            <h2 class="main-banner__title">Одежные ткани от 1 000 метров на фабриках Китая</h2>
+            <h5 class="main-banner__description">270 000+ видов тканей для одежды из 470 фабрик Китая.</h5>
+            <div class="main-banner__button-row">
+                <button class="btn btn-default btn-lg btn-action has-ripple" id="find-prices_form">Узнать цены</button>
+                <a class="btn btn-default btn-lg has-ripple" href="#steps">Как заказать?</a>
+            </div>
+            <div id="#find-prices_form" style="display: none"></div>
+        </section>
     </main>
     <!-- END main -->
 
@@ -318,8 +327,8 @@
     </footer>
     <!-- END footer -->
 
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="js/main.min.js"></script>
+    <script defer src="js/plugins.js"></script>
 </body>
 
 </html>

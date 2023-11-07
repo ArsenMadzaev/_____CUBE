@@ -59,7 +59,6 @@ const app = function () {
             if(item__close){
                 item__close.addEventListener('click', app.MobMenuClose);
             }
-
             if(lvl_open_list){
                 lvl_open_list.forEach(function(lvl_open){
                     lvl_open.addEventListener('click', (e) => {
@@ -256,4 +255,51 @@ const app = function () {
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
     app.init();
+});
+
+
+//sliders init
+const homeSlider = new Swiper('.main__slider .swiper', {
+    speed: 600, autoHeight: true, slidesPerView: 1, spaceBetween: 0, slideActiveClass: 'active',
+    navigation: { nextEl: '.main__slider .main__slider--next', prevEl: '.main__slider .main__slider--prev' },
+    autoplay: { delay: 6000 }
+});
+
+const homeSection = new Swiper('.catalog__section .swiper', {
+    speed: 600, autoHeight: true, slidesPerView: 3, spaceBetween: 7, slideActiveClass: 'active',freeMode: true,
+    navigation: { nextEl: '.catalog__section .catalog__section__slider--next', prevEl: '.catalog__section .catalog__section__slider--prev', disabledClass: 'disabled' },
+    breakpoints: {
+        0: {
+            slidesPerView: 'auto',
+            spaceBetween: 5,
+        },
+        576: {
+            slidesPerView: 2,
+            spaceBetween: 5,
+        },
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 7
+        }
+    }
+});
+
+const catalogElementsThumbs = new Swiper('.catalog__element--gallery__thumbs .swiper', {
+    direction: 'vertical',
+    slidesPerView: 5,
+    spaceBetween: 4,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+});
+
+const catalogElements = new Swiper('.catalog__element--gallery__images .swiper', {
+    slidesPerView: 1,
+    thumbs: {
+        swiper: catalogElementsThumbs,
+        slideThumbActiveClass: 'active',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    navigation: { prevEl: '.catalog__element--gallery__prev', nextEl: '.catalog__element--gallery__next', disabledClass: 'disabled' },
 });
