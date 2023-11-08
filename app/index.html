@@ -203,14 +203,21 @@
 
     <!-- main -->
     <main class="main">
-        <section class="main-banner">
-            <h2 class="main-banner__title">Одежные ткани от 1 000 метров на фабриках Китая</h2>
-            <h5 class="main-banner__description">270 000+ видов тканей для одежды из 470 фабрик Китая.</h5>
-            <div class="main-banner__button-row">
-                <button class="btn btn-default btn-lg btn-action has-ripple" id="find-prices_form">Узнать цены</button>
-                <a class="btn btn-default btn-lg has-ripple" href="#steps">Как заказать?</a>
+        <section class="main-slider container container__nopadding-sm">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="main-slider__slide swiper-slide">
+                        <img class="main-slider__image" src="/images/баннер.png" alt="">
+                        <h2 class="main-slider__title">Разработка и продвижение сайтов для бизнеса на 1С-Битрикс</h2>
+                        <h5 class="main-slider__description">На КМВ и по всей России</h5>
+                    </div>
+                    <div class="main-slider__slide swiper-slide">
+                        <img class="main-slider__image" src="/images/баннер.png" alt="">
+                        <h2 class="main-slider__title">Разработка и продвижение сайтов для бизнеса на 1С-Битрикс</h2>
+                        <h5 class="main-slider__description">На КМВ и по всей России</h5>
+                    </div>
+                </div>
             </div>
-            <div id="#find-prices_form" style="display: none"></div>
         </section>
     </main>
     <!-- END main -->
@@ -326,9 +333,9 @@
         </section>
     </footer>
     <!-- END footer -->
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script defer src="js/plugins.js" defer></script>
     <script src="js/main.min.js"></script>
-    <script defer src="js/plugins.js"></script>
 </body>
 
 </html>

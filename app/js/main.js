@@ -259,9 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //sliders init
-const homeSlider = new Swiper('.main__slider .swiper', {
+const mainSlider = new Swiper('.main-slider .swiper', {
     speed: 600, autoHeight: true, slidesPerView: 1, spaceBetween: 0, slideActiveClass: 'active',
-    navigation: { nextEl: '.main__slider .main__slider--next', prevEl: '.main__slider .main__slider--prev' },
     autoplay: { delay: 6000 }
 });
 
