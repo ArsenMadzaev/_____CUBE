@@ -387,6 +387,72 @@ body {
     }
 }
 
+.main {
+    .main-slider {
+        &__image img {
+            border-radius: 20px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            width: 100%;
+            min-height: 320px;
+            @include media(min, "md") {
+                aspect-ratio: auto;
+            }
+        }
+
+        &__title {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: 5%;
+            width: 90%;
+            font-size: rem(30px);
+            font-weight: 700;
+            line-height: 36.27px;
+            @include color(color, white);
+
+            @include media(min, "lg") {
+                width: 70%;
+            }
+
+            @include media(min, "xxl") {
+                width: 70%;
+                font-size: rem(50px);
+                font-weight: 700;
+                line-height: 60.45px;
+            }
+        }
+
+        &__description {
+            padding: 20px 0;
+            font-size: rem(15px);
+            font-weight: 500;
+            line-height: 17.66px;
+            @include color(color, white);
+
+            @include media(min, "lg") {
+                font-size: rem(16px);
+                line-height: 18.83px;
+            }
+        }
+
+        margin-bottom: rem(30px);
+    }
+
+    .customers-slider {
+        &__slide {
+            width: auto;
+        }
+
+        &__wrapper {
+            justify-content: center;
+            align-items: center;
+        }
+
+        margin-bottom: rem(100px);
+    }
+}
+
 .footer {
     //mobile
 
@@ -685,4 +751,22 @@ body {
         }
     }
 }
+
+//swiper bullets
+.swiper-pagination--custom > .swiper-pagination-bullet {
+    width: rem(40px);
+    height: rem(5px);
+    border-radius: rem(5px);
+    opacity: 1;
+    background-color: #E7EBF3;
+}
+
+.swiper-pagination--custom > .swiper-pagination-bullet-active {
+    width: rem(40px);
+    height: rem(5px);
+    border-radius: rem(5px);
+    opacity: 1;
+    @include color(background-color, blue)
+}
+
 //button blocks end

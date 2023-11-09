@@ -261,25 +261,19 @@ document.addEventListener('DOMContentLoaded', () => {
 //sliders init
 const mainSlider = new Swiper('.main-slider .swiper', {
     speed: 600, autoHeight: true, slidesPerView: 1, spaceBetween: 0, slideActiveClass: 'active',
-    autoplay: { delay: 6000 }
+    autoplay: { delay: 6000 },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
 });
 
-const homeSection = new Swiper('.catalog__section .swiper', {
-    speed: 600, autoHeight: true, slidesPerView: 3, spaceBetween: 7, slideActiveClass: 'active',freeMode: true,
-    navigation: { nextEl: '.catalog__section .catalog__section__slider--next', prevEl: '.catalog__section .catalog__section__slider--prev', disabledClass: 'disabled' },
+const customersLogoSection = new Swiper('.customers-slider .swiper', {
+    slidesPerView: 'auto', spaceBetween: 40,freeMode: true,
     breakpoints: {
-        0: {
-            slidesPerView: 'auto',
-            spaceBetween: 5,
+        1600: {
+            spaceBetween: 65,
         },
-        576: {
-            slidesPerView: 2,
-            spaceBetween: 5,
-        },
-        992: {
-            slidesPerView: 3,
-            spaceBetween: 7
-        }
     }
 });
 
