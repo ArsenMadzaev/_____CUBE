@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //sliders init
 const mainSlider = new Swiper('.main-slider .swiper', {
-    speed: 600, autoHeight: true, slidesPerView: 1, spaceBetween: 0, slideActiveClass: 'active',
+    speed: 600, autoHeight: true, slidesPerView: 1, spaceBetween: 100, slideActiveClass: 'active',
     autoplay: { delay: 6000 },
     pagination: {
         el: '.swiper-pagination',
@@ -269,7 +269,7 @@ const mainSlider = new Swiper('.main-slider .swiper', {
 });
 
 const customersLogoSection = new Swiper('.customers-slider .swiper', {
-    slidesPerView: 'auto', spaceBetween: 40,freeMode: true,
+    slidesPerView: 'auto', spaceBetween: 40,freeMode: true, center: true, 
     breakpoints: {
         1600: {
             spaceBetween: 65,
