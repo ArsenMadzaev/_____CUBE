@@ -273,7 +273,6 @@ body {
 
     &__navbar-list {
         display: flex;
-        width: 55%;
         justify-content: space-evenly;
     }
 
@@ -283,7 +282,7 @@ body {
         line-height: rem(18px);
         text-transform: uppercase;
         position: relative;
-
+        padding: rem(14px) rem(20px);
         & a:hover {
             @include color(color, blue);
         }
@@ -292,7 +291,7 @@ body {
     &__dropdown-wrapper {
         z-index: 101;
         opacity: 0;
-        top: 200%;
+        top: 100%;
         visibility: hidden;
         position: absolute;
         border-bottom-left-radius: rem(10px);
@@ -360,6 +359,8 @@ body {
     }
 
     &__navbar-number {
+        display: flex;
+        align-items: center;
         font-weight: 600;
         font-size: rem(20px);
         line-height: rem(24px);
@@ -368,7 +369,7 @@ body {
 
     &__mobile-buttons {
         display: flex;
-        width: rem(146px);
+        width: rem(126px);
         justify-content: flex-end;
         gap: rem(10px);
 
@@ -383,6 +384,9 @@ body {
 
     &__logo {
         min-width: rem(125px);
+        & svg{
+            width: 100%;
+        } 
     }
 
     &__menu-button {
@@ -398,6 +402,15 @@ body {
 
         @include media("min", "xl") {
             display: none;
+        }
+    }
+
+    & .button {
+        font-size: 0.75rem;
+        min-width: 5.5rem;
+
+        @include media_query(356px) {
+            font-size: 1rem;
         }
     }
 }
@@ -784,3 +797,5 @@ body {
 }
 
 //button blocks end
+
+
