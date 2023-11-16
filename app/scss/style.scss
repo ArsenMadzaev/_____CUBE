@@ -7,7 +7,6 @@
 // Сгенерированные классы 
 @import "classes-generation";
 
-
 //global
 html,
 body {
@@ -226,10 +225,30 @@ body {
     }
 }
 
+svg {
+    fill: currentColor;
+}
+
 //header
 .header {
     min-height: rem(80px);
     background-color: white;
+
+    &--fixed {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        @include color(color, white);
+        @include color(background-color, black);
+
+        .header__logo {
+            @include color(color, white);
+        }
+    }
+
+    @include media("min", "xxl") {
+        min-height: rem(103px);
+    }
 
     &__container {
         height: 100%;
@@ -244,6 +263,14 @@ body {
         gap: rem(10px);
         @include media("min", "sm") {
             gap: 0;
+        }
+
+        @include media("min", "xxl") {
+            padding: 1rem rem(30px);
+        }
+
+        @include media("min", "xxxl") {
+            padding: 1rem rem(60px);
         }
     }
     
@@ -278,6 +305,18 @@ body {
     &__navbar-list {
         display: flex;
         justify-content: space-evenly;
+
+        @include media("min", "xxl") {
+            &:first-child {
+                margin-left: rem(30px);
+            }
+        }
+
+        @include media("min", "xxxl") {
+            &:first-child {
+                margin-left: rem(70px);
+            }
+        }
     }
 
     &__navbar-item {
@@ -286,9 +325,18 @@ body {
         line-height: rem(18px);
         text-transform: uppercase;
         position: relative;
-        padding: rem(32px) rem(20px);
+        padding: rem(32px) rem(16px);
+
         & a:hover {
             @include color(color, blue);
+        }
+
+        &:hover > a{
+            @include color(color, blue);
+        }
+
+        @include media("min", "xxl") {
+            padding: rem(40px) rem(20px);
         }
     }
     
@@ -305,7 +353,7 @@ body {
         @include color(background-color, white);
         box-shadow: 0 5px 10px rgba($color: #000000, $alpha: .1);
         padding: rem(50px) 0 rem(100px) rem(50px);
-        transition: all 0.5s;
+        transition: all 0.2s;
     }
 
     &__navbar-item:hover > &__dropdown-blur::after
@@ -433,6 +481,8 @@ body {
 
     &__logo {
         min-width: rem(125px);
+        @include color(color, black);
+
         & svg{
             width: 100%;
         } 
@@ -596,11 +646,16 @@ body {
         font-weight: 700;
         font-size: rem(22px);
 
+        svg{
+            @include color(color, blue);
+        }
+
         &:hover svg{
             transform: translate(2px, -2px);
             transition: all 0.1s ease-in-out;
         }
         &:hover{
+            @include color(color, blue);
             opacity: .9;
         }
     }
@@ -843,6 +898,24 @@ body {
     border-radius: rem(5px);
     opacity: 1;
     @include color(background-color, blue)
+}
+
+.telegram {
+    @include color(background-color, blue);
+    @include color(color, white);
+    border-radius: rem(10px);
+}
+
+.whatsapp {
+    background-color: #00BD1E;
+    @include color(color, white);
+    border-radius: rem(10px);
+}
+
+.vk {
+    @include color(background-color, blue);
+    @include color(color, white);
+    border-radius: rem(10px);
 }
 
 //button blocks end

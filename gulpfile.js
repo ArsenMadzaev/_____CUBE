@@ -73,9 +73,9 @@ function svgSprites() {
    return src('app/svg/*.svg')
         .pipe(cheerio({
             run: function ($) {
-                // $('[fill]').removeAttr('fill');
-                // $('[stroke]').removeAttr('stroke');
-                // $('[style]').removeAttr('style');
+                $('[fill]').removeAttr('fill');
+                $('path[stroke]').removeAttr('stroke');
+                $('[style]').removeAttr('style');
             },
             parserOptions: {xmlMode: true}
         }))

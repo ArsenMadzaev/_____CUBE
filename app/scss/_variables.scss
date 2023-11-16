@@ -6,7 +6,8 @@ $grid-breakpoints: (
       lg: 992px,
       xl: 1200px,
       xxl: 1400px,
-      xxxl: 1600px
+      xxxl: 1600px,
+      xxxxl: 1800px
 ) !default;
 // Ширина контейнера
 $container-max-widths: (
@@ -15,7 +16,8 @@ $container-max-widths: (
   lg: 960px,
   xl: 1140px,
   xxl: 1320px,
-  xxxl: 1500px
+  xxxl: 1500px,
+  xxxxl: 1700px
 ) !default;
 // Используемые цвета
 $black: #152647 !default;

@@ -9,6 +9,7 @@ const app = function () {
                 app.ClickOutside(),
                 app.FeedbackForm(),
                 app.ReadMore(),
+                app.ScrollHeaderFix(),
                 app.ScrolltoObject()
         },
 
@@ -97,12 +98,19 @@ const app = function () {
 
         // Блочим скролл 
         LockScreen: () => {
-            body.style.paddingRight = window.innerWidth - document.getElementsByTagName('html')[0].clientWidth + 'px';
+            let paddingWidth = window.innerWidth - document.getElementsByTagName('html')[0].clientWidth + 'px';
+            if (document.querySelector('.header--fixed')){
+                document.querySelector('.header--fixed').style.paddingRight = paddingWidth;
+            };
+            body.style.paddingRight = paddingWidth;
             body.classList.add('lock__screen');
         },
 
         // Разлочим скролл
         UnlockScreen: () => {
+            if (document.querySelector('.header--fixed')){
+                document.querySelector('.header--fixed').style.paddingRight = null;
+            };
             body.style.paddingRight = null;
             body.classList.remove('lock__screen');
         },
@@ -117,6 +125,20 @@ const app = function () {
                     app.PersonalClose();
                     app.SearchClose();
                 })
+            }
+        },
+
+
+        //Фиксация хедера при скролле
+        ScrollHeaderFix: () => {
+            let header = document.querySelector('.header');
+            let offset = header.offsetHeight;
+            window.onscroll = function() {
+                if (window.scrollY > offset-10) {
+                    header.classList.add("header--fixed");
+                } else if(window.scrollY < offset-20) {
+                    header.classList.remove("header--fixed");
+                }
             }
         },
 
