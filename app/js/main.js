@@ -135,8 +135,11 @@ const app = function () {
             let offset = header.offsetHeight;
             window.onscroll = function() {
                 if (window.scrollY > offset-10) {
+                    console.log(header.offsetHeight);
+                    body.style.marginTop = header.offsetHeight + 'px';
                     header.classList.add("header--fixed");
                 } else if(window.scrollY < offset-20) {
+                    body.style.marginTop = null;
                     header.classList.remove("header--fixed");
                 }
             }

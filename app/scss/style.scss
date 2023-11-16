@@ -237,6 +237,7 @@ svg {
     &--fixed {
         position: fixed;
         z-index: 100;
+        top: 0;
         width: 100%;
         @include color(color, white);
         @include color(background-color, black);
