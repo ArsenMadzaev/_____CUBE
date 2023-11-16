@@ -239,6 +239,8 @@ svg {
         position: fixed;
         z-index: 100;
         top: 0;
+        border-bottom-left-radius: rem(15px);
+        border-bottom-right-radius: rem(15px);
         width: 100%;
         @include color(color, white);
         @include color(background-color, black);
