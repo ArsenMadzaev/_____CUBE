@@ -134,7 +134,7 @@ const app = function () {
             let header = document.querySelector('.header');
             let offset = header.offsetHeight;
             window.onscroll = function() {
-                if (window.scrollY > offset-10) {
+                if (window.scrollY > offset-10 && window.innerWidth <= 1200) {
                     console.log(header.offsetHeight);
                     body.style.marginTop = header.offsetHeight + 'px';
                     header.classList.add("header--fixed");
