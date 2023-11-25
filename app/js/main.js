@@ -302,12 +302,26 @@ const customersLogoSection = new Swiper('.customers-slider .swiper', {
     }
 });
 
-const catalogElementsThumbs = new Swiper('.catalog__element--gallery__thumbs .swiper', {
-    direction: 'vertical',
-    slidesPerView: 5,
-    spaceBetween: 4,
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
+const advantagesSlider = new Swiper('.advantages-section .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+        1400: {
+            slidesPerView: 4,
+        },
+
+        992: {
+            slidesPerView: 3,
+        },
+
+        768: {
+            slidesPerView: 2,
+        },
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
 });
 
 const catalogElements = new Swiper('.catalog__element--gallery__images .swiper', {

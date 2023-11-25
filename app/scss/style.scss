@@ -579,7 +579,87 @@ svg {
             align-items: center;
         }
 
-        margin-bottom: rem(100px);
+        margin-bottom: rem(50px);
+
+        @include media(min, "lg") {
+            margin-bottom: rem(100px);
+        }
+    }
+
+    .advantages-section {
+        &__slider {
+            padding: 10px;
+        }
+
+        &__slide {
+            min-height: 176px;
+            height: 100%;
+            padding: rem(25px) rem(30px);
+            border-radius: rem(15px);
+            box-shadow: 0px 0px 10px 0px rgba($color: #000000, $alpha: .2);
+        }
+
+        &__title {
+            margin-bottom: rem(11px);
+            font-size: rem(18px);
+            line-height: rem(21px);
+            font-weight: 700;
+        }
+
+        &__description {
+            font-size: rem(15px);
+            line-height: rem(17px);
+            font-weight: 400;
+        }
+
+        & .swiper-pagination {
+            position: static;
+        }
+
+        margin-bottom: rem(50px);
+
+        @include media(min, "lg") {
+            margin-bottom: rem(100px);
+        }
+    }
+
+    .infographics {
+
+        &__item {
+            text-align: center;
+        }
+
+        &__item-title {
+            margin-bottom: rem(11px);
+            font-size: rem(80px);
+            line-height: rem(93px);
+            font-weight: 400;
+
+            & sup {
+                font-size: rem(60px);
+                @include color(color, blue);
+            }
+        }
+
+        &__item-subtitle {
+            font-size: rem(16px);
+            line-height: rem(19px);
+            font-weight: 400;
+        }
+
+        &__item-link {
+            font-size: rem(14px);
+            line-height: rem(16px);
+            font-weight: 400;
+            text-decoration: underline;
+            @include color(color, blue);
+        }
+
+        margin-bottom: rem(50px);
+
+        @include media(min, "lg") {
+            margin-bottom: rem(100px);
+        }
     }
 }
 
