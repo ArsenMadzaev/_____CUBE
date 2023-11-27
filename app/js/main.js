@@ -5,6 +5,7 @@ const app = function () {
             // Тут подключаются функции
                 app.Submenu(),
                 app.MobMenu(),
+                app.NavbarDropDown(),
                 app.arrowTop(),
                 app.ClickOutside(),
                 app.FeedbackForm(),
@@ -94,6 +95,41 @@ const app = function () {
         MobMenuClose: () => {
             body.classList.remove('show__navbar');
             app.UnlockScreen();
+        },
+
+        NavbarDropDown: () => {
+            const navbar = document.querySelector('.header__dropdown-child');
+            const wrapper = document.querySelector('.header__dropdown-wrapper');
+            console.log(wrapper)
+            let navbarItem = document.querySelectorAll('.header__dropdown-list');
+            navbarItem.forEach((list) => {
+                let items = list.querySelectorAll('.dropdown');
+                console.log(items);
+                items.forEach((element) => {
+                    console.log(element);
+                    let dropdown = element.querySelector('.header__dropdown-list--lvl2');
+                    if (dropdown != null) {
+                        element.addEventListener('mouseover', (e) => {
+                            
+                            console.log('over');
+                            if (navbar.querySelector('.header__dropdown-list--lvl2') != dropdown){
+                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? element.style.color = '' : element.style.color = 'red'; 
+                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? navbar.removeChild(navbar.firstChild) : navbar.appendChild(dropdown); 
+                                e.stopPropagation();
+                            }
+                        })
+                        element.addEventListener('mouseuout', (e) => {
+                            
+                            console.log('over');
+                            if (navbar.querySelector('.header__dropdown-list--lvl2') != dropdown){
+                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? element.style.color = '' : element.style.color = 'red'; 
+                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? navbar.removeChild(navbar.firstChild) : navbar.appendChild(dropdown); 
+                                e.stopPropagation();
+                            }
+                        })
+                    };
+                });
+            });
         },
 
         // Блочим скролл 
@@ -324,14 +360,14 @@ const advantagesSlider = new Swiper('.advantages-section .swiper', {
     },
 });
 
-const catalogElements = new Swiper('.catalog__element--gallery__images .swiper', {
-    slidesPerView: 1,
-    thumbs: {
-        swiper: catalogElementsThumbs,
-        slideThumbActiveClass: 'active',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-    },
-    navigation: { prevEl: '.catalog__element--gallery__prev', nextEl: '.catalog__element--gallery__next', disabledClass: 'disabled' },
-});
+// const catalogElements = new Swiper('.catalog__element--gallery__images .swiper', {
+//     slidesPerView: 1,
+//     thumbs: {
+//         swiper: catalogElementsThumbs,
+//         slideThumbActiveClass: 'active',
+//     },
+//     pagination: {
+//         el: '.swiper-pagination',
+//     },
+//     navigation: { prevEl: '.catalog__element--gallery__prev', nextEl: '.catalog__element--gallery__next', disabledClass: 'disabled' },
+// });
