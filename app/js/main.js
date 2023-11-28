@@ -97,39 +97,65 @@ const app = function () {
             app.UnlockScreen();
         },
 
-        NavbarDropDown: () => {
-            const navbar = document.querySelector('.header__dropdown-child');
-            const wrapper = document.querySelector('.header__dropdown-wrapper');
-            console.log(wrapper)
-            let navbarItem = document.querySelectorAll('.header__dropdown-list');
-            navbarItem.forEach((list) => {
-                let items = list.querySelectorAll('.dropdown');
-                console.log(items);
+        //Работа с dropdown меню хедера
+        NavbarDropDown: () => { 
+            //Вешаем события на элементы навбара
+            const navbar = Array.from(document.querySelectorAll('.header__navbar-list .header__navbar-item'));
+            navbar.forEach((navbarItem) => {
+                if (navbarItem.querySelector('.header__dropdown-wrapper')) {
+                    navbarItem.addEventListener('mouseover', (e) => {
+                        body.classList.add('show__dropdown');
+                    })
+
+                    navbarItem.addEventListener('mouseout', (e) => {
+                        body.classList.remove('show__dropdown');
+                    })
+                }
+            })
+
+
+            const wrappersList = document.querySelectorAll('.header__dropdown-wrapper');
+            wrappersList.forEach((wrap) => {
+                let twoLvlWrap = document.createElement('ul');
+                let dropdownList = wrap.querySelector('.header__dropdown-list');
+                let items = dropdownList.querySelectorAll('.dropdown');
+
+                twoLvlWrap.classList.add('header__dropdown-child');
+                wrap.appendChild(twoLvlWrap);
+                twoLvlWrap = wrap.querySelector('.header__dropdown-child');
+
                 items.forEach((element) => {
-                    console.log(element);
                     let dropdown = element.querySelector('.header__dropdown-list--lvl2');
                     if (dropdown != null) {
                         element.addEventListener('mouseover', (e) => {
-                            
-                            console.log('over');
-                            if (navbar.querySelector('.header__dropdown-list--lvl2') != dropdown){
-                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? element.style.color = '' : element.style.color = 'red'; 
-                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? navbar.removeChild(navbar.firstChild) : navbar.appendChild(dropdown); 
-                                e.stopPropagation();
-                            }
+                            app.ResetClassOnListItems(items, 'selected--dropdown')
+                            element.classList.add('selected--dropdown')
+                            twoLvlWrap.innerHTML = '';
+                            twoLvlWrap.appendChild(dropdown); 
                         })
                         element.addEventListener('mouseuout', (e) => {
-                            
-                            console.log('over');
-                            if (navbar.querySelector('.header__dropdown-list--lvl2') != dropdown){
-                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? element.style.color = '' : element.style.color = 'red'; 
-                                navbar.querySelector('.header__dropdown-list--lvl2') != null ? navbar.removeChild(navbar.firstChild) : navbar.appendChild(dropdown); 
-                                e.stopPropagation();
-                            }
+                            app.ResetClassOnListItems(items, 'selected--dropdown')
+                            element.classList.add('selected--dropdown')
+                            twoLvlWrap.innerHTML = '';
+                            twoLvlWrap.appendChild(dropdown);  
                         })
                     };
                 });
             });
+        },
+
+        
+        //Удаляет определенный класс у всех элементов ноды
+        ResetClassOnListItems: (list, className) => {
+            try {
+                arrayList = Array.from(list);
+                for (select of arrayList) {
+                    select.classList.remove(className);
+                }
+            }
+            catch(e) {
+                console.error(e);
+            }
         },
 
         // Блочим скролл 
@@ -157,9 +183,6 @@ const app = function () {
             if(overlay){
                 overlay.addEventListener('click', () => {
                     app.MobMenuClose();
-                    app.BasketClose();
-                    app.PersonalClose();
-                    app.SearchClose();
                 })
             }
         },
