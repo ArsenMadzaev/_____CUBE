@@ -129,6 +129,26 @@ body {
         gap: rem(30px);
     }
 
+    &__item-link > &__next-lvl {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after{
+            content: '';
+            display: block;
+            position: relative;
+            background-color: $black;
+            width: 27px;
+            height: 12px;
+            mask-image: url("data:image/svg+xml,%3Csvg width='27' height='12' viewBox='0 0 27 12' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.5303 6.53033C26.8232 6.23744 26.8232 5.76256 26.5303 5.46967L21.7574 0.696699C21.4645 0.403806 20.9896 0.403806 20.6967 0.696699C20.4038 0.989593 20.4038 1.46447 20.6967 1.75736L24.9393 6L20.6967 10.2426C20.4038 10.5355 20.4038 11.0104 20.6967 11.3033C20.9896 11.5962 21.4645 11.5962 21.7574 11.3033L26.5303 6.53033ZM0 6.75H26V5.25H0V6.75Z'/%3E%3C/svg%3E%0A");
+        }
+        &:hover::after {
+            left: 5px;
+            background-color: $blue;
+        }
+    }
+
     &__item-link>a {
         display: block;
         width: 100%;
@@ -182,14 +202,15 @@ body {
         width: 100%;
         border: medium none;
         box-shadow: none;
-        visibility: visible;
-        opacity: 1;
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        display: block;
         position: absolute;
         z-index: 5;
         background: #FFF;
         margin: 0;
         padding: rem(30px);
+        transition: opacity 1s, visibility 0s linear 1s;
     }
     
     &__head, &__inner-head {
@@ -241,7 +262,6 @@ svg {
 
 //header
 .header {
-    min-height: rem(80px);
     background-color: white;
     z-index: 11;
     
@@ -264,7 +284,7 @@ svg {
         min-height: rem(103px);
     }
 
-    &__container {
+    &__wrapper {
         height: 100%;
     }
 
@@ -273,18 +293,18 @@ svg {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem rem(5px);
+        padding: rem(10px) rem(5px);
         gap: rem(10px);
         @include media("min", "sm") {
             gap: 0;
         }
 
         @include media("min", "xxl") {
-            padding: 1rem rem(30px);
+            padding: 0 rem(30px);
         }
 
         @include media("min", "xxxl") {
-            padding: 1rem rem(60px);
+            padding: 0 rem(60px);
         }
     }
     
@@ -358,17 +378,20 @@ svg {
         display: flex;
         z-index: 101;
         opacity: 0;
-        top: 99%;
+        top: 100%;
         left: -5px;
-        border-top: $black solid 2px;
         visibility: hidden;
         position: absolute;
         border-bottom-left-radius: rem(10px);
         border-bottom-right-radius: rem(10px);
         @include color(background-color, white);
         box-shadow: 0 5px 10px rgba($color: #000000, $alpha: .1);
-        padding: rem(50px);
+        padding: rem(30px);
         transition: all 0.2s;
+
+        @include media("min", "xxxl") {
+            padding: rem(50px);
+        }
     }
 
     &__navbar-item:hover &__dropdown-wrapper {
@@ -377,11 +400,16 @@ svg {
     }
 
     &__dropdown-item {
-        font-size: rem(18px);
-        line-height: rem(21px);
+        font-size: rem(15px);
+        line-height: rem(18px);
         font-weight: 400;
-        padding: 0 10px;
-       
+        padding: 0 rem(15px);
+
+        @include media("min", "xxl") {
+            font-size: rem(18px);
+            line-height: rem(21px);
+        }
+
         &:hover {
             @include color(color, blue);
         }
@@ -398,19 +426,52 @@ svg {
     &__dropdown-list > &__dropdown-item {
         line-height: rem(40px);
         min-width: 200px;
+
+        @include media("min", "xxl") {
+            min-width: 250px;
+        }
+
+        @include media("min", "xxxl") {
+            min-width: 300px;
+        }
+    }
+
+    &__dropdown-list > .dropdown {
+        line-height: rem(40px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &::after {
+            content: '';
+            display: block;
+            position: relative;
+            background-color: $black;
+            width: 27px;
+            height: 12px;
+            mask-image: url("data:image/svg+xml,%3Csvg width='27' height='12' viewBox='0 0 27 12' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.5303 6.53033C26.8232 6.23744 26.8232 5.76256 26.5303 5.46967L21.7574 0.696699C21.4645 0.403806 20.9896 0.403806 20.6967 0.696699C20.4038 0.989593 20.4038 1.46447 20.6967 1.75736L24.9393 6L20.6967 10.2426C20.4038 10.5355 20.4038 11.0104 20.6967 11.3033C20.9896 11.5962 21.4645 11.5962 21.7574 11.3033L26.5303 6.53033ZM0 6.75H26V5.25H0V6.75Z'/%3E%3C/svg%3E%0A");
+        }
+
+        &:hover::after {
+            left: 5px;
+            background-color: $blue;
+        }
     }
 
     &__dropdown-list--lvl2 {
-        padding-left: rem(30px);
+        padding-left: rem(20px);
         border-left: 2px solid #D9D9D9;
         white-space: nowrap; 
         visibility: hidden;
         position: absolute;
         display: flex;
         flex-direction: column;
-        gap: rem(30px);
+        gap: rem(20px);
         top: 0;
         
+        @include media("min", "xxl") {
+            gap: rem(30px);
+            padding-left: rem(30px);
+        }
     }
 
     &__dropdown-child > &__dropdown-list--lvl2 {
@@ -422,9 +483,14 @@ svg {
     }
 
     &__dropdown-title--lvl2 {
-        font-size: rem(25px);
-        line-height: rem(25px);
+        font-size: rem(20px);
+        line-height: rem(20px);
         font-weight: 600;
+        
+        @include media("min", "xxl") {
+            font-size: rem(25px);
+            line-height: rem(25px);
+        }
     }
 
     &__navbar-number {
@@ -433,7 +499,11 @@ svg {
         font-weight: 600;
         font-size: rem(20px);
         line-height: rem(24px);
-        padding-right: rem(30px);
+        padding-right: rem(10px);
+
+        @include media("min", "xxl") {
+            padding-right: rem(30px);
+        }
     }
 
     &__mobile-buttons {
@@ -637,6 +707,15 @@ svg {
     &__wrapper { 
         display: flex;
         flex-direction: column;
+
+        @include media(min, "md") {
+            border-top: 2px solid $footer-silver;
+            padding-top: rem(30px);
+        }
+
+        @include media(min, "xl") {
+            padding-top: rem(50px);
+        }
     }
 
     &__menu-item {
@@ -644,16 +723,63 @@ svg {
         flex-direction: column;
         align-items: center;
         gap: rem(20px);
+
+        @include media(min, "md") {
+            &:nth-child(4) {
+                width: 100%;
+    
+                & ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                }
+            }
+    
+            &:last-child {
+                margin: 0 auto;
+            }
+        }
+
+        @include media(min, "xl") {
+
+            &:nth-child(4) {
+                width: auto;
+                & ul {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+    
+            &:last-child {
+                margin: 0;
+            }
+            
+        }
     }
 
     &__menu-item--visibility {
         display: none;
+
+        @include media(min, "md") {
+            display: block;   
+        }
     }
     
     &__menu-navbar {
         display: flex;
         justify-content: center;
         margin-bottom: rem(44px);
+
+        @include media(min, "md") {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: rem(35px);
+        }
+
+        @include media(min, "xl") {
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
     }
 
     &__menu-list {
@@ -727,12 +853,32 @@ svg {
         align-items: center;
         padding: rem(25px) 0;
         gap: rem(25px);
+
+        @include media(min, "md") {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        @include media(min, "xl") {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
     }
 
     &__contact-title {
         @include font-size-get(footerContactTitle);
         text-align: center;
         @include color(color, silver);
+
+        @include media(min, "md") {
+            text-align: left;
+        }
+
+        @include media(min, "xl") {
+            text-align: left;
+        }
     }
 
     &__contact-item {
@@ -745,6 +891,14 @@ svg {
         font-size: rem(16px);
         text-align: center;
         @include color(color, black);
+
+        @include media(min, "md") {
+            text-align: left;
+        }
+
+        @include media(min, "xl") {
+            text-align: left;
+        }
     }
 
     &__copyright-inner {
@@ -753,6 +907,11 @@ svg {
         flex-direction: column;
         gap: rem(12px);
         align-items: center;
+
+        @include media(min, "md") {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
     
     &__copyright-item {
@@ -761,103 +920,15 @@ svg {
         @include color(color, silver);
         @include font-size-get(copiright);
     }
-
-    //Media querys footer
-
-    @include media(min, "md") {
-        &__wrapper { 
-            border-top: 2px solid $footer-silver;
-            padding-top: rem(30px);
-        }
-
-        &__menu-item--visibility {
-            display: block;   
-        }
-
-        &__menu-navbar {
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: rem(35px);
-        }
-
-        &__contacts-inner {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        &__contact-title {
-            text-align: left;
-        }
-
-        &__contact-content {
-            text-align: left;
-        }
-
-        &__copyright-inner {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        &__menu-item:nth-child(4) {
-            width: 100%;
-
-            & ul {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-
-        &__menu-item:last-child {
-            margin: 0 auto;
-        }
-    }
-
-    @include media(min, "xl") {
-        &__wrapper { 
-            padding-top: rem(50px);
-        }
-
-        &__contacts-inner {
-            flex-wrap: nowrap;
-            justify-content: space-between;
-        }
-
-        &__contact-title {
-            text-align: left;
-        }
-
-        &__contact-content {
-            text-align: left;
-        }
-
-        &__menu-navbar {
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-
-        &__menu-item:nth-child(4) {
-            width: auto;
-            & ul {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        &__menu-item:last-child {
-            margin: 0;
-        }
-        
-    }
 }
 
 
 //----------BLOCKS-------------
 
 .show {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
 }
 
 .phone-link {

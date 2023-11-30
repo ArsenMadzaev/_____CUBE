@@ -99,7 +99,7 @@ const app = function () {
 
         //Работа с dropdown меню хедера
         NavbarDropDown: () => { 
-            //Вешаем события на элементы навбара
+            //Блюр при открытии/закрытии выпадающего списка
             const navbar = Array.from(document.querySelectorAll('.header__navbar-list .header__navbar-item'));
             navbar.forEach((navbarItem) => {
                 if (navbarItem.querySelector('.header__dropdown-wrapper')) {
@@ -113,7 +113,7 @@ const app = function () {
                 }
             })
 
-
+            //Вешаем события на элементы выпадающего списка
             const wrappersList = document.querySelectorAll('.header__dropdown-wrapper');
             wrappersList.forEach((wrap) => {
                 let twoLvlWrap = document.createElement('ul');
