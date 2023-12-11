@@ -578,7 +578,7 @@
             </section>
             <!-- infographics section end-->
 
-            <section class="projects-tabs">
+            <section class="projects-tabs" id="tabFilter">
                 <div class="projects-tabs__btn-wrapper" role="tablist" aria-label="Projects">
                     <button class="projects-tabs__btn" role="tab" aria-selected="true"
                         id="onlineStores">Интернет-магазин</button>
@@ -586,15 +586,28 @@
                         сайт</button>
                     <button class="projects-tabs__btn" role="tab" aria-selected="false"
                         id="siteCatalog">Сайт-каталог</button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="Design">Дизайн</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="design">Дизайн</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false" 
+                        id="support">Техподдержка</button>
                     <button class="projects-tabs__btn" role="tab" aria-selected="false"
-                        id="onlineStores">Техподдержка</button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false"
-                        id="onlineStores">Маркетинг</button>
+                        id="marketing">Маркетинг</button>
                 </div>
-                <div class="projects-tabs__tabpanel-wrapper" role="tabpanel" aria-labelledby="onlineStores">
-                    <div class="projects-tabs__item">
-
+                <div class="projects-tabs__tabpanel-wrapper">
+                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores" data-accessory="onlineStores">
+                        <img class="project-tabs__item" src="images/tabsImage/1.png" alt="">
+                        <h6 class="project-tabs__item-title">Bossa Nova</h6>
+                        <p class="project-tabs__item-subtitle">Интернет-магазин бренда российской детской одежды для розничной торговли</p>
+                    </div>
+                    <!-- значения дата атрибута accessory надо записывать через пробел -->
+                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores design" data-accessory="onlineStores design"> 
+                        <img class="project-tabs__item" src="images/tabsImage/2.png" alt="">
+                        <h6 class="project-tabs__item-title">Sahar art lab</h6>
+                        <p class="project-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
+                    </div>
+                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores" data-accessory="onlineStores">
+                        <img class="project-tabs__item" src="images/tabsImage/3.png" alt="">
+                        <h6 class="project-tabs__item-title">PRO Туризм</h6>
+                        <p class="project-tabs__item-subtitle">Сервис бронирования путевок и объектов размещения</p>
                     </div>
                 </div>
             </section>

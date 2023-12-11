@@ -375,12 +375,12 @@ svg {
     }
     
     &__dropdown-wrapper {
-        display: flex;
         z-index: 101;
         opacity: 0;
         top: 100%;
         left: -5px;
         visibility: hidden;
+        display: none;
         position: absolute;
         border-bottom-left-radius: rem(10px);
         border-bottom-right-radius: rem(10px);
@@ -396,6 +396,7 @@ svg {
 
     &__navbar-item:hover &__dropdown-wrapper {
         opacity: 1;
+        display: flex;
         visibility: visible;
     }
 
@@ -697,6 +698,26 @@ svg {
 
         @include media(min, "lg") {
             margin-bottom: rem(100px);
+        }
+    }
+
+    .projects-tabs {
+        &__btn {
+            
+        }
+
+        &__item {
+            display: none;
+
+            &--active {
+                display: block;
+            }
+        }
+
+        &__tabpanel-wrapper {
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 1rem;
         }
     }
 }

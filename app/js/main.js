@@ -6,6 +6,7 @@ const app = function () {
                 app.Submenu(),
                 app.MobMenu(),
                 app.NavbarDropDown(),
+                app.TabFilter(),
                 app.arrowTop(),
                 app.ClickOutside(),
                 app.FeedbackForm(),
@@ -144,6 +145,37 @@ const app = function () {
             });
         },
 
+        //Работа с таб фильтром на главной странице
+        TabFilter: () => {
+            let tabFilter = document.querySelector('#tabFilter');
+            let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
+            let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
+            let tabAccessoryList = {};
+            
+            tabList.forEach((tabListItem) => {
+                tabAccessoryList[tabListItem.id] = [];
+
+                tabListItem.addEventListener('click', (e) => {
+                    app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
+                    app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
+                    tabListItem.classList.add('projects-tabs__btn--active');
+
+                    for (let tab of tabAccessoryList[tabListItem.id]){
+                        tab.classList.add('projects-tabs__item--active');
+                    }
+                    
+                })
+            })
+
+            tabPanels.forEach((tabPanelItem) => {
+                let arrayProps = tabPanelItem.dataset.accessory.split(' ');
+
+                for(let i = 0; i < arrayProps.length; i++){
+                    tabAccessoryList[arrayProps[i]].push(tabPanelItem);
+                }
+               
+            })
+        },
         
         //Удаляет определенный класс у всех элементов ноды
         ResetClassOnListItems: (list, className) => {
@@ -194,7 +226,6 @@ const app = function () {
             let offset = header.offsetHeight;
             window.onscroll = function() {
                 if (window.scrollY > offset-10 && window.innerWidth <= 1200) {
-                    console.log(header.offsetHeight);
                     body.style.marginTop = header.offsetHeight + 'px';
                     header.classList.add("header--fixed");
                 } else if(window.scrollY < offset-20) {
