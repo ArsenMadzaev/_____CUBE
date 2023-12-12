@@ -663,7 +663,6 @@ svg {
     }
 
     .infographics {
-
         &__item {
             text-align: center;
         }
@@ -702,16 +701,63 @@ svg {
     }
 
     .projects-tabs {
+
+        &__btn-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: rem(30px);
+            gap: rem(15px) rem(35px);
+        }
+
         &__btn {
+            font-size: rem(14px);
+            line-height: rem(16px);
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 0;
+            padding-bottom: rem(5px);
+            background-color: transparent;
             
+            &--active {
+                border-bottom: 2px solid $blue;
+            }
+        }
+
+        &__more-btn {
+            margin: 0 auto;
+            margin-bottom: rem(70px);
         }
 
         &__item {
             display: none;
+            max-width: rem(480px);
+            margin: 0 auto;
 
             &--active {
-                display: block;
+                display: flex;
+                flex-direction: column;
+                gap: rem(20px);
             }
+        }
+
+        &__item-img {
+            width: 100%;
+            border-radius: rem(15px);
+            margin-bottom: rem(20px);
+        }
+
+        &__item-title {
+            font-size: rem(25px);
+            line-height: rem(30px);
+            font-weight: 700;
+            margin-bottom: rem(10px);
+        }
+
+        &__item-subtitle {
+            font-size: rem(16px);
+            line-height: rem(18px);
+            font-weight: 500;
         }
 
         &__tabpanel-wrapper {
@@ -983,14 +1029,15 @@ svg {
 
 //button blocks
 .button {
+    display: block;
     @include color(background-color, blue);
     @include color(color, white);
     position: relative;
     border-radius: rem(30px);
-    width: rem(200px);
-    min-width: rem(100px);
+    // width: rem(200px);
+    // min-width: rem(100px);
     border: 0;
-    padding: rem(10px) rem(10px);
+    padding: rem(10px) rem(25px);
     min-height: rem(47px);
     font-weight: 600;
     font-size: rem(16px);

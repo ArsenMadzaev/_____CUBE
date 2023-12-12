@@ -156,14 +156,15 @@ const app = function () {
                 tabAccessoryList[tabListItem.id] = [];
 
                 tabListItem.addEventListener('click', (e) => {
+                    app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
                     app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
                     app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
                     tabListItem.classList.add('projects-tabs__btn--active');
+                    tabListItem.ariaSelected = 'true';
 
                     for (let tab of tabAccessoryList[tabListItem.id]){
                         tab.classList.add('projects-tabs__item--active');
                     }
-                    
                 })
             })
 
@@ -173,16 +174,40 @@ const app = function () {
                 for(let i = 0; i < arrayProps.length; i++){
                     tabAccessoryList[arrayProps[i]].push(tabPanelItem);
                 }
-               
             })
+
+            //Выбирам элемент по дефолту
+            tabList[0].click()
         },
         
-        //Удаляет определенный класс у всех элементов ноды
-        ResetClassOnListItems: (list, className) => {
+        /**
+         * Удаляет определенный класс у всех элементов ноды
+         * @param {object} listNode - Массив или объект элементов
+         * @param {string} className - Имя класса
+        */
+        ResetClassOnListItems: (listNode, className) => {
             try {
-                arrayList = Array.from(list);
+                arrayList = Array.from(listNode);
                 for (select of arrayList) {
                     select.classList.remove(className);
+                }
+            }
+            catch(e) {
+                console.error(e);
+            }
+        },
+
+        /**
+         * Устанавливает определенный aria атрибут всем элементам ноды 
+         * @param {object} listNode - Массив или объект элементов
+         * @param {string} ariaAtr - Aria атрибут
+         * @param {string} ariaValue - Значение aria атрибута
+        */
+        SetAriaAtrOnListItems: (listNode, ariaAtr, ariaValue) => {
+            try {
+                arrayList = Array.from(listNode);
+                for (select of arrayList) {
+                    select.setAttribute(ariaAtr, ariaValue);
                 }
             }
             catch(e) {
@@ -219,7 +244,6 @@ const app = function () {
             }
         },
 
-
         //Фиксация хедера при скролле
         ScrollHeaderFix: () => {
             let header = document.querySelector('.header');
@@ -248,11 +272,14 @@ const app = function () {
             }
         },
         
-        // Для проверки форм (Если обратить внимание, то он находит родителей кнопки). Семантика обязательно должна быть соблюдена!!!
-        FormControl: (item__submit) => {
+        /**
+         * Для проверки форм (Если обратить внимание, то он находит родителей кнопки). Семантика обязательно должна быть соблюдена!!!
+         * @param {object} itemSubmit - Элемент отправки формы
+        */
+        FormControl: (itemSubmit) => {
             let result = [],
                 find__error = false
-            let children = Array.from(item__submit.parentElement);
+            let children = Array.from(itemSubmit.parentElement);
             for (i = 0; i < children.length; i++) {
                 if (children[i].hasAttribute('aria-required')) {
                     if (children[i].value === '') {

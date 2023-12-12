@@ -15,7 +15,7 @@
         <div class="container container__nopadding-sm">
             <div class="header__items">
                 <div class="header__logo">
-                    <a href="#">
+                    <a href="#" aria-label="To main page">
                         <svg role="img" width="181" height="60">
                             <use xlink:href="svg/symbol/svg-symbols.svg#logo"></use>
                         </svg>
@@ -97,13 +97,13 @@
                 </nav>
                 <button class="button">Обсудить проект</button>
                 <div class="header__mobile-buttons">
-                    <div class="header__call-button">
+                    <div class="header__call-button" aria-label="Call button">
                         <svg role="img" width="23" height="23">
                             <use xlink:href="svg/symbol/svg-symbols.svg#phone"></use>
                         </svg>
                     </div>
                     <div class="header__menu-button">
-                        <svg role="img" width="28" height="21">
+                        <svg role="img" width="28" height="21" aria-label="Mobile menu open">
                             <use xlink:href="svg/symbol/svg-symbols.svg#burger"></use>
                         </svg>
                     </div>
@@ -120,7 +120,7 @@
                     <div class="mobile-menu__title">
                         <span>Меню</span>
                     </div>
-                    <div class="mobile-menu__close">
+                    <div class="mobile-menu__close" aria-label="Mobile menu close">
                         <svg role="img" width="21" height="21">
                             <use xlink:href="svg/symbol/svg-symbols.svg#closeButton"></use>
                         </svg>
@@ -137,7 +137,7 @@
                                     <div class="mobile-menu__title">
                                         <span>Услуги</span>
                                     </div>
-                                    <div class="mobile-menu__close-lvl">
+                                    <div class="mobile-menu__close-lvl" aria-label="Mobile menu back">
                                         <svg role="img" width="12" height="21">
                                             <use xlink:href="svg/symbol/svg-symbols.svg#backButton"></use>
                                         </svg>
@@ -174,7 +174,7 @@
                                     <div class="mobile-menu__title">
                                         <span>Кейсы</span>
                                     </div>
-                                    <div class="mobile-menu__close-lvl">
+                                    <div class="mobile-menu__close-lvl" aria-label="Mobile menu back">
                                         <svg role="img" width="12" height="21">
                                             <use xlink:href="svg/symbol/svg-symbols.svg#backButton"></use>
                                         </svg>
@@ -237,9 +237,9 @@
 
     <!-- main -->
     <main class="main">
-        <div class="container container__nopadding-sm">
-            <!-- main-slider section -->
-            <section class="main-slider">
+        <!-- main-slider section -->
+        <section class="main-slider">
+            <div class="container container__nopadding-sm">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="main-slider__slide swiper-slide">
@@ -284,11 +284,13 @@
                     </div>
                     <div class="swiper-pagination swiper-pagination--custom"></div>
                 </div>
-            </section>
-            <!-- main-slider section end -->
+            </div>
+        </section>
+        <!-- main-slider section end -->
 
-            <!-- customers-slider section -->
-            <section class="customers-slider container container__nopadding-sm">
+        <!-- customers-slider section -->
+        <section class="customers-slider">
+            <div class="container container__nopadding-sm">
                 <div class="swiper">
                     <div class="swiper-wrapper customers-slider__wrapper">
                         <div class="customers-slider__slide swiper-slide">
@@ -514,11 +516,13 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- customers-slider section end -->
+            </div>
+        </section>
+        <!-- customers-slider section end -->
 
-            <!-- advantages section -->
-            <section class="advantages-section">
+        <!-- advantages section -->
+        <section class="advantages-section">
+            <div class="container">
                 <div class="swiper advantages-section__slider">
                     <div class="swiper-wrapper">
                         <div class="advantages-section__slide swiper-slide">
@@ -544,11 +548,13 @@
                     </div>
                     <div class="swiper-pagination swiper-pagination--custom"></div>
                 </div>
-            </section>
-            <!-- advantages section end -->
+            </div>
+        </section>
+        <!-- advantages section end -->
 
-            <!-- infographics section -->
-            <section class="infographics">
+        <!-- infographics section -->
+        <section class="infographics">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-sm-12">
                         <div class="infographics__item">
@@ -575,10 +581,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- infographics section end-->
+            </div>
+        </section>
+        <!-- infographics section end-->
 
-            <section class="projects-tabs" id="tabFilter">
+        <section class="projects-tabs" id="tabFilter">
+            <div class="container">
                 <div class="projects-tabs__btn-wrapper" role="tablist" aria-label="Projects">
                     <button class="projects-tabs__btn" role="tab" aria-selected="true"
                         id="onlineStores">Интернет-магазин</button>
@@ -587,30 +595,107 @@
                     <button class="projects-tabs__btn" role="tab" aria-selected="false"
                         id="siteCatalog">Сайт-каталог</button>
                     <button class="projects-tabs__btn" role="tab" aria-selected="false" id="design">Дизайн</button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" 
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false"
                         id="support">Техподдержка</button>
                     <button class="projects-tabs__btn" role="tab" aria-selected="false"
                         id="marketing">Маркетинг</button>
                 </div>
-                <div class="projects-tabs__tabpanel-wrapper">
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores" data-accessory="onlineStores">
-                        <img class="project-tabs__item" src="images/tabsImage/1.png" alt="">
-                        <h6 class="project-tabs__item-title">Bossa Nova</h6>
-                        <p class="project-tabs__item-subtitle">Интернет-магазин бренда российской детской одежды для розничной торговли</p>
+                <div class="projects-tabs__tabpanel-wrapper" aria-label="Selected projects">
+                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores"
+                        data-accessory="onlineStores">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/1.png" alt="">
+                            <h6 class="projects-tabs__item-title">Bossa Nova</h6>
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда российской детской одежды
+                                для
+                                розничной торговли
+                            </p>
+                        </a>
                     </div>
                     <!-- значения дата атрибута accessory надо записывать через пробел -->
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores design" data-accessory="onlineStores design"> 
-                        <img class="project-tabs__item" src="images/tabsImage/2.png" alt="">
-                        <h6 class="project-tabs__item-title">Sahar art lab</h6>
-                        <p class="project-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
+                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores design"
+                        data-accessory="onlineStores design">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="">
+                            <h6 class="projects-tabs__item-title">Sahar art lab</h6>
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
+                        </a>
                     </div>
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores" data-accessory="onlineStores">
-                        <img class="project-tabs__item" src="images/tabsImage/3.png" alt="">
-                        <h6 class="project-tabs__item-title">PRO Туризм</h6>
-                        <p class="project-tabs__item-subtitle">Сервис бронирования путевок и объектов размещения</p>
+                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores"
+                        data-accessory="onlineStores">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/3.png" alt="">
+                            <h6 class="projects-tabs__item-title">PRO Туризм</h6>
+                            <p class="projects-tabs__item-subtitle">Сервис бронирования путевок и объектов размещения</p>
+                        </a>
                     </div>
                 </div>
-            </section>
+                <button class="projects-tabs__more-btn button">Посмотреть все проекты</button>
+            </div>
+        </section>
+
+        <div class="directions">
+            <div class="container">
+                <div class="directions__wrapper">
+                    <div class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Веб-разработка</h4>
+                            <p class="directions__item-description">Проектируем, разрабатываем, тестируем сайты любого уровня сложности.</p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Техническая поддержка и развитие</h4>
+                            <p class="directions__item-description">Поддерживаем и развиваем готовые проекты на CMS 1C-Битрикс, Wordpress, Image CMS.</p>
+                            <p class="directions__remark">Выделенная команда. Скидки на выкуп часов.</p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Поисковое продвижение</h4>
+                            <p class="directions__item-description">Проектируем, разрабатываем, тестируем сайты любого уровня сложности.</p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Интеграция и автоматизация</h4>
+                            <p class="directions__item-description">Поддерживаем и развиваем готовые проекты на CMS 1C-Битрикс, Wordpress, Image CMS.</p>
+                            <p class="directions__remark">Выделенная команда. Скидки на выкуп часов.</p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">SEO-оптимизация и продвижение</h4>
+                            <p class="directions__item-description">Проектируем, разрабатываем, тестируем сайты любого уровня сложности.</p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Дизайн-макеты для любых целей</h4>
+                            <p class="directions__item-description">Поддерживаем и развиваем готовые проекты на CMS 1C-Битрикс, Wordpress, Image CMS.</p>
+                            <p class="directions__remark">Выделенная команда. Скидки на выкуп часов.</p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!-- END main -->
@@ -666,17 +751,17 @@
                                 </svg>
                             </a>
                             <div class="footer__social-bar">
-                                <a class="footer__social-item telegram" href="">
+                                <a class="footer__social-item telegram" href="" aria-label="Telegram">
                                     <svg role="img" width="50" height="50">
                                         <use xlink:href="svg/symbol/svg-symbols.svg#telegram"></use>
                                     </svg>
                                 </a>
-                                <a class="footer__social-item whatsapp" href="">
+                                <a class="footer__social-item whatsapp" href="" aria-label="Whatsapp">
                                     <svg role="img" width="50" height="50">
                                         <use xlink:href="svg/symbol/svg-symbols.svg#whatsapp"></use>
                                     </svg>
                                 </a>
-                                <a class="footer__social-item vk" href="">
+                                <a class="footer__social-item vk" href="" aria-label="VK">
                                     <svg role="img" width="50" height="50">
                                         <use xlink:href="svg/symbol/svg-symbols.svg#vk"></use>
                                     </svg>
