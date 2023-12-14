@@ -701,7 +701,6 @@ svg {
     }
 
     .projects-tabs {
-
         &__btn-wrapper {
             display: flex;
             justify-content: center;
@@ -764,6 +763,41 @@ svg {
             display: grid;  
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 1rem;
+        }
+    }
+
+    .directions {
+
+        &__wrapper {
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(670px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        &__item {
+            display: flex;
+            gap: 0 rem(20px);
+        }
+
+        &__item-text {
+            max-width: rem(320px);
+        }
+
+        &__item-title {
+            font-size: rem(28px);
+            line-height: rem(34px);
+            font-weight: 700;
+            margin-bottom: rem(16px);
+        }
+
+        &__item-description, &__remark {
+            font-size: rem(16px);
+            line-height: rem(19px);
+            font-weight: 400;
+        }
+
+        &__img-wrapper {
+            max-width: rem(350px);
         }
     }
 }
