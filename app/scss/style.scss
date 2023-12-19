@@ -773,6 +773,7 @@ svg {
             display: grid;  
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             grid-gap: rem(25px);
+            margin-bottom: rem(70px);
 
             @include media(min, "md") {
                 grid-template-columns: repeat(auto-fit, minmax(670px, 680px));
@@ -852,6 +853,50 @@ svg {
                 display: block;
             }
         }
+    }
+
+    .guarantees {
+
+        &__title {
+            font-size: rem(35px);
+            line-height: rem(40px);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: rem(50px);
+        }
+
+        &__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            gap: rem(20px);
+            max-width: rem(300px);
+        }
+
+        &__item-title {
+            font-size: rem(25px);
+            line-height: rem(30px);
+            font-weight: 400;
+        }
+
+        &__item-subtitle {
+            font-size: rem(16px);
+            line-height: rem(19px);
+            font-weight: 400;
+        }
+
+        &__item-img {
+            width: 65px;
+        }
+
+
     }
 }
 
