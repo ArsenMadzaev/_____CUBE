@@ -744,6 +744,7 @@ svg {
             width: 100%;
             border-radius: rem(15px);
             margin-bottom: rem(20px);
+            box-shadow: 0px 4px 50px 0px #203D772B;
         }
 
         &__item-title {
@@ -770,17 +771,55 @@ svg {
 
         &__wrapper {
             display: grid;  
-            grid-template-columns: repeat(auto-fit, minmax(670px, 1fr));
-            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-gap: rem(25px);
+
+            @include media(min, "md") {
+                grid-template-columns: repeat(auto-fit, minmax(670px, 680px));
+                justify-content: center;
+            }
+
+            @include media(min, "xl") {
+                grid-template-columns: repeat(auto-fit, minmax(500px, 500px));
+            }
+
+            @include media(min, "xxl") {
+                grid-template-columns: repeat(auto-fit, minmax(600px, 620px));
+            }
+
+            @include media(min, "xxxl") {
+                grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            }
         }
 
         &__item {
             display: flex;
+            justify-content: space-between;
             gap: 0 rem(20px);
+            border-radius: rem(20px);
+            box-sizing: border-box;
+            box-shadow: 0px 4px 50px 0px #203D772B;
+            
         }
 
         &__item-text {
-            max-width: rem(320px);
+            max-width: 100%;
+            padding: rem(40px);
+            @include media(min, "md") {
+                max-width: rem(320px);
+            }
+            @include media(min, "xl") {
+                max-width: rem(500px);
+            }
+            @include media(min, "xxl") {
+                max-width: rem(300px);
+            }
+            @include media(min, "xxxl") {
+                max-width: rem(350px);
+            }
+            @include media(min, "xxxl") {
+                max-width: rem(420px);
+            }
         }
 
         &__item-title {
@@ -797,7 +836,21 @@ svg {
         }
 
         &__img-wrapper {
-            max-width: rem(350px);
+            display: none;
+            align-self: flex-end;
+
+            @include media(min, "md") {
+                display: block;
+                max-width: rem(350px);
+            }
+
+            @include media(min, "xl") {
+                display: none;
+            }
+
+            @include media(min, "xxl") {
+                display: block;
+            }
         }
     }
 }
