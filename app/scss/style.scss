@@ -737,6 +737,22 @@ svg {
                 display: flex;
                 flex-direction: column;
                 gap: rem(20px);
+                animation: openDisplayNone 1s ease-out 0s 1 normal;
+                animation-fill-mode: forwards;
+              
+
+                @keyframes openDisplayNone {
+                    0% {
+                      display: block;
+                      opacity: 0;
+                      visibility: hidden;
+                    }
+                    100% {
+                      display: block;
+                      opacity: 1;
+                      visibility: visible;
+                    }
+                }
             }
         }
 
@@ -896,7 +912,89 @@ svg {
 
 
     }
+
+    .form-feedback {
+        @include color(background-color, blue);
+
+        &__title {
+            font-size: rem(35px);
+            line-height: rem(35px);
+            font-weight: 700;
+            @include color(color, white);
+            text-align: center;
+        }
+
+        &__subtitle {
+            font-size: rem(17px);
+            line-height: rem(17px);
+            font-weight: 400;
+            @include color(color, white);
+            text-align: center;
+        }
+    }
+
 }
+
+.form {
+    max-width: rem(940px);
+
+    &__inputs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(35px);
+    }
+
+    &__text-field {
+        font-size: rem(18px);
+        line-height: rem(20px);
+        padding: rem(15px);
+        border-radius: rem(10px);
+        border: 1px solid $white;
+    }
+
+    &__field-label {
+        font-size: rem(16px);
+        line-height: rem(19px);
+        margin-bottom: rem(5px);
+    }
+    
+    &__input {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        &--checkbox {
+            flex-direction: row;
+            width: 100%;
+            flex: 1;
+            
+        }
+
+        &--textarea {
+            width: 100%;
+            flex: auto;
+        }
+
+        &--email {
+            flex: 2;
+        }
+    }
+
+    &__field-label {
+        @include color(color, white);
+    }
+
+    &__input input:focus, &__input textarea:focus {
+        @include color(color, black);
+        @include color(background-color, white);
+    }
+
+    &__input input, &__input textarea {
+        @include color(color, white);
+        @include color(background-color, blue);
+    }
+}
+
 
 .footer {
     //mobile
@@ -1178,6 +1276,13 @@ svg {
 
     &:disabled {
         opacity: 1;
+    }
+
+    &--submit {
+        @include color(color, black);
+        @include color(background-color, white);
+        width: rem(180px);
+        height: rem(52px);
     }
 }
 
