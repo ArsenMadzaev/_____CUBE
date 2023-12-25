@@ -856,7 +856,6 @@ svg {
     }
 
     .guarantees {
-
         &__title {
             font-size: rem(35px);
             line-height: rem(40px);
@@ -864,12 +863,7 @@ svg {
             text-align: center;
             margin-bottom: rem(50px);
         }
-
-        &__inner {
-            display: flex;
-            justify-content: space-between;
-        }
-
+        
         &__item {
             display: flex;
             flex-direction: column;
@@ -877,7 +871,11 @@ svg {
             align-items: center;
             text-align: center;
             gap: rem(20px);
-            max-width: rem(300px);
+
+            @include media(min, "lg") {
+                max-width: rem(300px);
+                margin: 0 auto;
+            }
         }
 
         &__item-title {
