@@ -12,7 +12,8 @@ const app = function () {
                 app.FeedbackForm(),
                 app.ReadMore(),
                 app.ScrollHeaderFix(),
-                app.ScrolltoObject()
+                app.ScrolltoObject(),
+                app.PopupInit('popupFeedback')
         },
 
         // Показать BackGround
@@ -98,6 +99,39 @@ const app = function () {
             app.UnlockScreen();
         },
 
+        /**
+         * Инициализрует popup окно которое следует стандартной HTML структуре
+         * @param {string} popupId - ID попап элемента
+        */
+        PopupInit: (popupId) => {
+            let popup = document.querySelector(`#${popupId}`);
+            let openBtns = document.querySelectorAll(`button[data-button-for-id="${popupId}"]`);
+            closeBtn = popup.querySelector('.popup__close');
+            let overlay = document.querySelector('.overlay-blur');
+
+            openBtns.forEach((openButton) => {
+                openButton.addEventListener('click', (e) => {
+                    popup.style.display = 'block';
+                    app.BackgroundShow();
+                    app.LockScreen();
+                });
+            });
+
+            closeBtn.addEventListener('click', (e) => {
+                popup.removeAttribute('style');
+                app.BackgroundHide();
+                app.UnlockScreen();
+            });
+
+            // if(overlay){
+            //     overlay.addEventListener('click', () => {
+            //         popup.removeAttribute('style');
+            //         app.BackgroundHide();
+            //         app.UnlockScreen();
+            //     })
+            // }
+        },
+        
         //Работа с dropdown меню хедера
         NavbarDropDown: () => { 
             //Блюр при открытии/закрытии выпадающего списка
