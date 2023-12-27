@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/plugins.css" />
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container container__nopadding-sm">
+            <div class="header__items">
+                <div class="header__logo">
+                    <a href="#" aria-label="To main page">
+                        <svg role="img" width="181" height="60">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#logo"></use>
+                        </svg>
+                    </a>
+                </div>
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list" role="list">
+                        <!-- navbar item -->
+                        <li class="header__navbar-item">
+                            <a href="#">Услуги</a>
+                            <!-- drop down 1 lvl -->
+                            <div class="header__dropdown-wrapper">
+                                <ul class="header__dropdown-list" role="list">
+                                    <li class="header__dropdown-item dropdown">
+                                        <a href="#">Веб-разработка</a>
+                                        <!-- drop down 2 lvl -->
+                                        <ul class="header__dropdown-list--lvl2" role="list">
+                                            <h5 class="header__dropdown-title--lvl2">
+                                                Веб-разработка
+                                            </h5>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Интернет-магазин</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Корпоративный портал</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Сайт-каталог</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Landing-page</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Сайты на Tilda</a>
+                                            </li>
+                                        </ul>
+                                        <!-- drop down 2 lvl end-->
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a href="#">Продвижение</a>
+                                    </li>
+                                    <li class="header__dropdown-item dropdown">
+                                        <a href="#">Интеграция</a>
+                                        <!-- drop down 2 lvl -->
+                                        <ul class="header__dropdown-list--lvl2" role="list">
+                                            <h5 class="header__dropdown-title--lvl2">Веб</h5>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Интернет-магазин</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">Корпоративный портал</a>
+                                            </li>
+                                        </ul>
+                                        <!-- drop down 2 lvl end -->
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a href="#">Техподдержка</a>
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a href="#">Дизайн</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- navbar item end -->
+                        <li class="header__navbar-item"><a href="#">Кейсы</a></li>
+                        <li class="header__navbar-item"><a href="#">О нас</a></li>
+                        <li class="header__navbar-item"><a href="#">Блог</a></li>
+                        <li class="header__navbar-item"><a href="#">Цены</a></li>
+                        <li class="header__navbar-item">
+                            <a href="#">Контакты</a>
+                            <div class="header__dropdown-wrapper">
+                                <!-- drop down 1 lvl -->
+                                <ul class="header__dropdown-list" role="list">
+                                    <li class="header__dropdown-item dropdown">
+                                        <a href="#">Видеосвязь</a>
+                                        <!-- drop down 2 lvl -->
+                                        <ul class="header__dropdown-list--lvl2" role="list">
+                                            <h5 class="header__dropdown-title--lvl2">
+                                                Веб-разработка
+                                            </h5>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">тест1</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">тест2</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">тест3</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">тест4</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">тест5</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__dropdown-item dropdown">
+                                        <a href="#">Интеграция</a>
+                                        <!-- drop down 2 lvl -->
+                                        <ul class="header__dropdown-list--lvl2" role="list">
+                                            <h5 class="header__dropdown-title--lvl2">Тест</h5>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">телеграмм</a>
+                                            </li>
+                                            <li class="header__dropdown-item">
+                                                <a href="#">VK</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a href="#">Техподдержка</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="header__navbar-number">8 (800) 201-96-41</div>
+                </nav>
+                <button class="button button--sm" data-button-for-id="popupFeedback">
+                    Обсудить проект
+                </button>
+                <div class="header__mobile-buttons">
+                    <div class="header__call-button" aria-label="Call button">
+                        <svg role="img" width="23" height="23">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#phone"></use>
+                        </svg>
+                    </div>
+                    <div class="header__menu-button">
+                        <svg role="img" width="28" height="21" aria-label="Mobile menu open">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#burger"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END header -->
+
+    <!-- mobile-menu -->
+    <aside>
+        <nav class="mobile-menu">
+            <div class="mobile-menu__wrapper">
+                <div class="mobile-menu__head">
+                    <div class="mobile-menu__title">
+                        <span>Меню</span>
+                    </div>
+                    <div class="mobile-menu__close" aria-label="Mobile menu close">
+                        <svg role="img" width="21" height="21">
+                            <use xlink:href="svg/symbol/svg-symbols.svg#closeButton"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mobile-menu__body">
+                    <ul class="mobile-menu__items">
+                        <!-- mobile-menu lvl-1 -->
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__next-lvl">Услуги</a>
+                            </div>
+                            <!-- mobile-menu lvl-2 -->
+                            <ul class="mobile-menu__inner-items">
+                                <div class="mobile-menu__inner-head">
+                                    <div class="mobile-menu__title">
+                                        <span>Услуги</span>
+                                    </div>
+                                    <div class="mobile-menu__close-lvl" aria-label="Mobile menu back">
+                                        <svg role="img" width="12" height="21">
+                                            <use xlink:href="svg/symbol/svg-symbols.svg#backButton"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__body">
+                                    <div class="mobile-menu__items" role="list">
+                                        <li class="mobile-menu__link">
+                                            <a href="#">Веб-разработка</a>
+                                        </li>
+                                        <li class="mobile-menu__link">
+                                            <a href="#">Продвижение</a>
+                                        </li>
+                                        <li class="mobile-menu__link">
+                                            <a href="#">Интеграция</a>
+                                        </li>
+                                        <li class="mobile-menu__link">
+                                            <a href="#">Техподдержка</a>
+                                        </li>
+                                        <li class="mobile-menu__link"><a href="#">Дизайн</a></li>
+                                    </div>
+                                    <div class="mobile-menu__social">
+                                        <div class="mobile-menu__social-item">
+                                            <a class="phone-link" href="tel:+88002019641">8 (800) 201-96-41</a>
+                                            <p class="mobile-menu__social-item--subtitle">
+                                                Звонок бесплатный по России
+                                            </p>
+                                        </div>
+                                        <div class="mobile-menu__social-item">
+                                            <a class="mail-link"
+                                                href="mailto:info@agency-cube.ru">info@agency-cube.ru</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                            <!-- mobile-menu lvl-2 end -->
+                        </li>
+                        <!-- mobile-menu lvl-1 end -->
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__next-lvl">Кейсы</a>
+                            </div>
+                            <ul class="mobile-menu__inner-items">
+                                <div class="mobile-menu__inner-head">
+                                    <div class="mobile-menu__title">
+                                        <span>Кейсы</span>
+                                    </div>
+                                    <div class="mobile-menu__close-lvl" aria-label="Mobile menu back">
+                                        <svg role="img" width="12" height="21">
+                                            <use xlink:href="svg/symbol/svg-symbols.svg#backButton"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__body">
+                                    <div class="mobile-menu__items" role="list">
+                                        <li class="mobile-menu__link">
+                                            <a href="#">Bossa Nova</a>
+                                        </li>
+                                        <li class="mobile-menu__link">
+                                            <a href="#">Sahar art lab</a>
+                                        </li>
+                                        <li class="mobile-menu__link">
+                                            <a href="#">PRO Туризм</a>
+                                        </li>
+                                    </div>
+                                    <div class="mobile-menu__social">
+                                        <div class="mobile-menu__social-item">
+                                            <a class="phone-link" href="tel:+88002019641">8 (800) 201-96-41</a>
+                                            <p class="mobile-menu__social-item--subtitle">
+                                                Звонок бесплатный по России
+                                            </p>
+                                        </div>
+                                        <div class="mobile-menu__social-item">
+                                            <a class="mail-link"
+                                                href="mailto:info@agency-cube.ru">info@agency-cube.ru</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">О нас</a>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">Блог</a>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">Цены</a>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-menu__item-link">
+                                <a class="mobile-menu__link" href="#">Контакты</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu__social">
+                        <div class="mobile-menu__social-item">
+                            <a class="phone-link" href="tel:+88002019641">8 (800) 201-96-41</a>
+                            <p class="mobile-menu__social-item--subtitle">
+                                Звонок бесплатный по России
+                            </p>
+                        </div>
+                        <div class="mobile-menu__social-item">
+                            <a class="mail-link" href="mailto:info@agency-cube.ru">info@agency-cube.ru</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </aside>
+    <!-- mobile-menu end -->
+
+    <!-- main -->
+    <main class="main">
+        <!-- breadcrumbs -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__items">
+                    <li class="breadcrumbs__item">
+                        <a href="#" class="breadcrumbs__link">Главная</a>
+                    </li>
+                    <li class="breadcrumbs__item breadcrumbs__item--active">
+                        Услуги
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- breadcrumbs end -->
+
+        <!-- page-title -->
+        <h2 class="page-title">
+            <div class="container">
+                Услуги
+            </div>
+        </h2>
+        <!-- page-title end -->
+
+        <!-- directions section -->
+        <div class="directions">
+            <div class="container">
+                <div class="directions__wrapper">
+                    <a href="#" class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Веб-разработка</h4>
+                            <p class="directions__item-description">
+                                Проектируем, разрабатываем, тестируем сайты любого уровня
+                                сложности.
+                            </p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="" />
+                        </div>
+                    </a>
+                    <a href="#" class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">
+                                Техническая поддержка и развитие
+                            </h4>
+                            <p class="directions__item-description">
+                                Поддерживаем и развиваем готовые проекты на CMS 1C-Битрикс,
+                                Wordpress, Image CMS.
+                            </p>
+                            <p class="directions__remark">
+                                Выделенная команда. Скидки на выкуп часов.
+                            </p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="" />
+                        </div>
+                    </a>
+                    <a href="#" class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">Поисковое продвижение</h4>
+                            <p class="directions__item-description">
+                                Проектируем, разрабатываем, тестируем сайты любого уровня
+                                сложности.
+                            </p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/2.png" alt="" />
+                        </div>
+                    </a>
+                    <a href="#" class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">
+                                Интеграция и автоматизация
+                            </h4>
+                            <p class="directions__item-description">
+                                Поддерживаем и развиваем готовые проекты на CMS 1C-Битрикс,
+                                Wordpress, Image CMS.
+                            </p>
+                            <p class="directions__remark">
+                                Выделенная команда. Скидки на выкуп часов.
+                            </p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="" />
+                        </div>
+                    </a>
+                    <a href="#" class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">
+                                SEO-оптимизация и продвижение
+                            </h4>
+                            <p class="directions__item-description">
+                                Проектируем, разрабатываем, тестируем сайты любого уровня
+                                сложности.
+                            </p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="" />
+                        </div>
+                    </a>
+                    <a href="#" class="directions__item">
+                        <div class="directions__item-text">
+                            <h4 class="directions__item-title">
+                                Дизайн-макеты для любых целей
+                            </h4>
+                            <p class="directions__item-description">
+                                Поддерживаем и развиваем готовые проекты на CMS 1C-Битрикс,
+                                Wordpress, Image CMS.
+                            </p>
+                            <p class="directions__remark">
+                                Выделенная команда. Скидки на выкуп часов.
+                            </p>
+                        </div>
+                        <div class="directions__img-wrapper">
+                            <img class="directions__item-img" src="images/directionImage/1.png" alt="" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- directions section end -->
+
+        <!-- page-description section -->
+        <div class="page-description">
+            <div class="container">
+                <div class="row page-description__row">
+                    <div class="page-description__wrapper">
+                        <h2 class="page-description__title">
+                            Услуги нашей команды
+                        </h2>
+
+                        <p class="page-description__text">
+                            ГИПЕРКУБ предлагает комплексные IT-услуги, включающие
+                            веб-разработку, продвижение, дизайн и интеграцию с
+                            автоматизацией. Мы создаем современные и функциональные
+                            веб-сайты, которые эффективно представляют ваш бизнес в
+                            онлайн-мире. Наше продвижение поможет привлечь больше клиентов и
+                            увеличить вашу онлайн-видимость. Мы также предлагаем
+                            профессиональный дизайн, который отвечает всем вашим
+                            потребностям и целям, будь то создание логотипов, фирменного
+                            стиля или пользовательского интерфейса. Мы осуществляем
+                            интеграцию различных систем, чтобы обеспечить совместную работу
+                            и эффективное управление вашими бизнес-процессами.
+                        </p>
+                        <div class="page-description__text">
+                            Кроме того, мы помогаем автоматизировать рутинные задачи, что
+                            позволяет вам сосредоточиться на стратегических задачах и
+                            повысить производительность вашего бизнеса. Мы готовы быть вашим
+                            надежным партнером в достижении ваших целей и успеха в сфере
+                            информационных технологий.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-description section end -->
+    </main>
+    <!-- END main -->
+
+    <div class="overlay-blur"></div>
+    <!-- footer -->
+    <footer class="footer">
+        <section class="footer__wrapper">
+            <article class="footer__menu">
+                <div class="container">
+                    <div class="footer__menu-navbar">
+                        <div class="footer__menu-item footer__menu-item--visibility">
+                            <ul class="footer__menu-list" role="list">
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Разработка</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Интернет-магазин</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Корпоративный сайт</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Landing page</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Сайт-каталог</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Сайт на Tilda</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__menu-item footer__menu-item--visibility">
+                            <ul class="footer__menu-list" role="list">
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Продвижение</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Поисковое продвижение</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">SEO продвижение</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Таргетированная реклама</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__menu-item footer__menu-item--visibility">
+                            <ul class="footer__menu-list" role="list">
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Интеграция</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Интеграция с 1С</a>
+                                </li>
+                                <li class="footer__list-item">
+                                    <a href="#">Интеграция с CRM</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__menu-item footer__menu-item--visibility">
+                            <ul class="footer__menu-list" role="list">
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Техподдержка</a>
+                                </li>
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Дизайн</a>
+                                </li>
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Кейсы</a>
+                                </li>
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">О нас</a>
+                                </li>
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Блог</a>
+                                </li>
+                                <li class="footer__list-item footer__list-item--bold">
+                                    <a href="#">Цены</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="footer__menu-item">
+                            <button class="button" data-button-for-id="popupFeedback">
+                                Обсудить проект
+                            </button>
+                            <a class="footer__howgetto" href="">Как проехать
+                                <svg role="img" width="13" height="12">
+                                    <use xlink:href="svg/symbol/svg-symbols.svg#arrow"></use>
+                                </svg>
+                            </a>
+                            <div class="footer__social-bar">
+                                <a class="footer__social-item telegram" href="" aria-label="Telegram">
+                                    <svg role="img" width="50" height="50">
+                                        <use xlink:href="svg/symbol/svg-symbols.svg#telegram"></use>
+                                    </svg>
+                                </a>
+                                <a class="footer__social-item whatsapp" href="" aria-label="Whatsapp">
+                                    <svg role="img" width="50" height="50">
+                                        <use xlink:href="svg/symbol/svg-symbols.svg#whatsapp"></use>
+                                    </svg>
+                                </a>
+                                <a class="footer__social-item vk" href="" aria-label="VK">
+                                    <svg role="img" width="50" height="50">
+                                        <use xlink:href="svg/symbol/svg-symbols.svg#vk"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="footer__contacts">
+                <div class="container">
+                    <div class="footer__contacts-inner">
+                        <div class="footer__contact-item">
+                            <div class="footer__contact-title">Техподдержка и вопросы</div>
+                            <div class="footer__contact-content">info@agency-cube.ru</div>
+                        </div>
+                        <div class="footer__contact-item">
+                            <div class="footer__contact-title">Звонок бесплатный</div>
+                            <div class="footer__contact-content">8 (800) 201-15-41</div>
+                        </div>
+                        <div class="footer__contact-item">
+                            <div class="footer__contact-title">WhatsApp и Telegram</div>
+                            <div class="footer__contact-content">8 (968) 265-15-66</div>
+                        </div>
+                        <div class="footer__contact-item">
+                            <div class="footer__contact-title">Режим работы</div>
+                            <div class="footer__contact-content">пн-пт с 10 до 18</div>
+                        </div>
+                        <div class="footer__contact-item">
+                            <div class="footer__contact-title">Адрес</div>
+                            <div class="footer__contact-content">
+                                г. Пятигорск, ул. Февральская 54<br />4 этаж каб Б-405
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="footer__copyright">
+                <div class="container">
+                    <div class="footer__copyright-inner">
+                        <div class="footer__copyright-item">ГИПЕРКУБ © 2023</div>
+                        <div class="footer__copyright-item">
+                            ИП Барышева Анна Анатольевна, ИНН 000000000, ОГРИП 0000000000
+                        </div>
+                        <div class="footer__copyright-item">
+                            Политика конфиденциальности
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- popup -->
+        <div class="popup" id="popupFeedback">
+            <div class="popup__content">
+                <span class="popup__close"></span>
+                <div class="form-feedback">
+                    <h4 class="popup__title form-feedback__title">Обсудить проект</h4>
+                    <p class="popup__subtitle form-feedback__subtitle">
+                        Заполните форму и мы свяжемся с вами в ближайшее время.
+                        Консультируем бесплатно.
+                    </p>
+                    <form class="form">
+                        <div class="form__inputs">
+                            <div class="form__input">
+                                <label class="form__field-label" for="popupName">Ваше имя*</label>
+                                <input class="form__text-field" type="text" name="name" id="popupName" />
+                            </div>
+                            <div class="form__input">
+                                <label class="form__field-label" for="popupPhone">Ваш телефон*</label>
+                                <input class="form__text-field" type="phone" name="phone" id="popupPhone"
+                                    placeholder="+7 (___) ___-__-__" />
+                            </div>
+                            <div class="form__input form__input--email">
+                                <label class="form__field-label" for="popupEmail">Ваш email*</label>
+                                <input class="form__text-field" type="email" name="email" id="popupEmail" />
+                            </div>
+                            <div class="form__input form__input--textarea">
+                                <label class="form__field-label" for="popupMessage">Сообщение</label>
+                                <textarea class="form__text-field" type="text" name="message" id="popupMessage" rows="5"
+                                    cols="33"></textarea>
+                            </div>
+                            <div class="form__input form__input--checkbox">
+                                <input class="form__text-field" type="checkbox" name="policy" id="popupPolicy" />
+                                <label class="form__field-label" for="popupPolicy">Нажимая кнопку «Отправить», вы
+                                    соглашаетесь с политикой
+                                    обработки ваших персональных данных</label>
+                            </div>
+                            <button class="button button--submit" type="submit" value="Отправить">
+                                Отправить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- popup end -->
+    </footer>
+    <!-- END footer -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script defer src="js/plugins.js" defer></script>
+    <script src="js/main.min.js"></script>
+</body>
+
+</html>

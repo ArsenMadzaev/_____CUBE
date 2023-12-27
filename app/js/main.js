@@ -105,31 +105,24 @@ const app = function () {
         */
         PopupInit: (popupId) => {
             let popup = document.querySelector(`#${popupId}`);
-            let openBtns = document.querySelectorAll(`button[data-button-for-id="${popupId}"]`);
-            closeBtn = popup.querySelector('.popup__close');
-            let overlay = document.querySelector('.overlay-blur');
+            if (popupId) {
+                let openBtns = document.querySelectorAll(`button[data-button-for-id="${popupId}"]`);
+                closeBtn = popup.querySelector('.popup__close');
 
-            openBtns.forEach((openButton) => {
-                openButton.addEventListener('click', (e) => {
-                    popup.style.display = 'block';
-                    app.BackgroundShow();
-                    app.LockScreen();
+                openBtns.forEach((openButton) => {
+                    openButton.addEventListener('click', (e) => {
+                        popup.style.display = 'block';
+                        app.BackgroundShow();
+                        app.LockScreen();
+                    });
                 });
-            });
 
-            closeBtn.addEventListener('click', (e) => {
-                popup.removeAttribute('style');
-                app.BackgroundHide();
-                app.UnlockScreen();
-            });
-
-            // if(overlay){
-            //     overlay.addEventListener('click', () => {
-            //         popup.removeAttribute('style');
-            //         app.BackgroundHide();
-            //         app.UnlockScreen();
-            //     })
-            // }
+                closeBtn.addEventListener('click', (e) => {
+                    popup.removeAttribute('style');
+                    app.BackgroundHide();
+                    app.UnlockScreen();
+                });
+            }
         },
         
         //Работа с dropdown меню хедера
@@ -182,36 +175,39 @@ const app = function () {
         //Работа с таб фильтром на главной странице
         TabFilter: () => {
             let tabFilter = document.querySelector('#tabFilter');
-            let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
-            let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
-            let tabAccessoryList = {};
-            
-            tabList.forEach((tabListItem) => {
-                tabAccessoryList[tabListItem.id] = [];
 
-                tabListItem.addEventListener('click', (e) => {
-                    app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
-                    app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
-                    app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
-                    tabListItem.classList.add('projects-tabs__btn--active');
-                    tabListItem.ariaSelected = 'true';
+            if (tabFilter) {
+                let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
+                let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
+                let tabAccessoryList = {};
+                
+                tabList.forEach((tabListItem) => {
+                    tabAccessoryList[tabListItem.id] = [];
 
-                    for (let tab of tabAccessoryList[tabListItem.id]){
-                        tab.classList.add('projects-tabs__item--active');
+                    tabListItem.addEventListener('click', (e) => {
+                        app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
+                        app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
+                        app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
+                        tabListItem.classList.add('projects-tabs__btn--active');
+                        tabListItem.ariaSelected = 'true';
+
+                        for (let tab of tabAccessoryList[tabListItem.id]){
+                            tab.classList.add('projects-tabs__item--active');
+                        }
+                    })
+                })
+
+                tabPanels.forEach((tabPanelItem) => {
+                    let arrayProps = tabPanelItem.dataset.accessory.split(' ');
+
+                    for(let i = 0; i < arrayProps.length; i++){
+                        tabAccessoryList[arrayProps[i]].push(tabPanelItem);
                     }
                 })
-            })
 
-            tabPanels.forEach((tabPanelItem) => {
-                let arrayProps = tabPanelItem.dataset.accessory.split(' ');
-
-                for(let i = 0; i < arrayProps.length; i++){
-                    tabAccessoryList[arrayProps[i]].push(tabPanelItem);
-                }
-            })
-
-            //Выбирам элемент по дефолту
-            tabList[0].click()
+                //Выбирам элемент по дефолту
+                tabList[0].click()
+            }
         },
         
         /**

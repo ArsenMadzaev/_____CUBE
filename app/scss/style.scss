@@ -263,14 +263,20 @@ svg {
 //header
 .header {
     background-color: white;
+    border-bottom: 2px solid $footer-silver;
     z-index: 11;
     
+    &--index {
+        border-bottom: none;
+    }
+
     &--fixed {
         position: fixed;
         z-index: 100;
         top: 0;
         border-bottom-left-radius: rem(15px);
         border-bottom-right-radius: rem(15px);
+        border-bottom: none;
         width: 100%;
         @include color(color, white);
         @include color(background-color, black);
@@ -701,6 +707,11 @@ svg {
     }
 
     .projects-tabs {
+
+        &--margin-bottom {
+            margin-bottom: rem(50px);
+        }
+
         &__btn-wrapper {
             display: flex;
             justify-content: center;
@@ -778,8 +789,12 @@ svg {
 
         &__tabpanel-wrapper {
             display: grid;  
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
             grid-gap: 1rem;
+
+            @include media(min, "md") {
+                grid-template-columns: repeat(auto-fit, minmax(405px, 1fr));
+            }
         }
     }
 
@@ -1341,6 +1356,53 @@ svg {
 
 //----------BLOCKS-------------
 
+.breadcrumbs {
+    margin: rem(25px) 0 rem(25px) 0;
+
+    @include media("min", "md") {
+        margin: rem(25px) 0 rem(45px) 0;
+    }
+
+    &__items {
+        display: flex;
+        font-size: rem(11px);
+        line-height: rem(14px);
+        font-weight: 600;
+        color: #9099AB;
+
+        @include media("min", "md") {
+            font-size: rem(12px);
+        }
+    }
+
+    &__item {
+        margin-right: rem(5px);
+
+        &--active {
+            @include color(color, black);
+        }
+    }
+
+    
+
+    &__link::after {
+        content: '—';
+        margin-left: rem(5px);
+    }
+}
+
+ .page-title {
+    font-size: rem(23px);
+    line-height: rem(27px);
+    font-weight: 700;
+    margin-bottom: rem(35px);
+
+    @include media("min", "md") {
+        font-size: rem(40px);
+        font-size: rem(48px);
+    }
+ }
+
 .popup {
     display: none;
     position: fixed;
@@ -1495,6 +1557,13 @@ svg {
         &:hover {
             opacity: 1;
             @include color(color, blue);
+        }
+    }
+
+    &--sm {
+        padding: rem(10px) rem(10px);
+        @include media("min", "sm") {
+            padding: rem(10px) rem(25px);
         }
     }
 }
