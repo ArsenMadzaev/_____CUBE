@@ -1015,6 +1015,25 @@ svg {
         }
     }
 
+    .cases-banner {
+
+        &__wrapper {
+            height: 375px;
+            width: 100%;
+            position: relative;
+
+            @include media(min, "xl") {
+                height: 536px;
+            }
+        }
+
+        &__image {
+            height: 100%;
+            width: 100%;
+            border-radius: rem(20px);
+            object-fit: cover;
+        }
+    }
 }
 
 .form {
