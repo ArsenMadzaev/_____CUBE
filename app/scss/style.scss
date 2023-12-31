@@ -1165,6 +1165,40 @@ svg {
             width: 100%;
         }
 
+        &__name {
+            position: absolute;
+            bottom: rem(70px);
+            left: rem(30px);
+            @include color(color, white);
+
+            font-size: rem(25px);
+            font-weight: 700;
+            line-height: rem(25px);
+
+            @include media(min, "lg") {
+                font-size: rem(40px);
+                font-weight: 700;
+                line-height: rem(40px);
+            }
+        }
+
+        &__specialization {
+            position: absolute;
+            bottom: rem(30px);
+            left: rem(30px);
+            @include color(color, white);
+
+            font-size: rem(15px);
+            font-weight: 400;
+            line-height: rem(25px);
+
+            @include media(min, "lg") {
+                font-size: rem(18px);
+                font-weight: 400;
+                line-height: rem(30px);
+            }
+        }
+
         &__prev, &__next {
             width: rem(74px);
             height: rem(15px);
@@ -2127,11 +2161,61 @@ svg {
     
 }
 
+.customers-grid {
+    margin-bottom: rem(60px);
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 0;
+    }
+
+    &__logo {
+        padding: rem(75px) rem(45px);
+        text-align: center;
+    }
+}
+
+.about-excellence {
+    margin-bottom: rem(80px);
+
+    &__title {
+        font-size: rem(30px);
+        font-weight: 700;
+        line-height: rem(30px);
+        @include color(color, blue);
+    }
+
+    &__text {
+        font-size: rem(16px);
+        font-weight: 500;
+        line-height: rem(30px);
+    }
+}
+
 .article-text {
     &--bg-section {
         font-size: rem(18px);
         font-weight: 400;
         line-height: rem(25px);
+    }
+
+    &--about {
+        font-size: rem(20px);
+        font-weight: 500;
+        line-height: rem(25px);
+
+        @include media("min", "sm") {
+            font-size: rem(25px);
+            font-weight: 500;
+            line-height: rem(25px);
+        }
+
+        @include media("min", "lg") {
+            font-size: rem(40px);
+            font-weight: 500;
+            line-height: rem(47px);
+        }
     }
 }
 
