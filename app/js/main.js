@@ -11,6 +11,7 @@ const app = function () {
                 app.ClickOutside(),
                 app.FeedbackForm(),
                 app.ReadMore(),
+                app.Accordion(),
                 app.ScrollHeaderFix(),
                 app.ScrolltoObject(),
                 app.PopupInit('popupFeedback')
@@ -290,6 +291,20 @@ const app = function () {
         },
 
         // Форма аутентификации
+        Accordion: () => {
+            let accordionWrap = document.querySelector('.accordion__wrapper');
+            if(accordionWrap){
+                accordionItems = document.querySelectorAll('.accordion__item');
+                accordionItems.forEach((accordionItem) => {
+                    accordionItem.querySelector('.accordion__header').addEventListener('click', (e) => {
+                        accordionItem.classList.toggle('accordion__item--active');
+                    })
+                })
+
+            }
+        },
+
+        // Форма аутентификации
         FeedbackForm: () => {
             let button = document.querySelector('button[type="submit"].header__personal--auth__submit');
             if(button){
@@ -471,14 +486,40 @@ const advantagesSlider = new Swiper('.advantages-section .swiper', {
     },
 });
 
-// const catalogElements = new Swiper('.catalog__element--gallery__images .swiper', {
-//     slidesPerView: 1,
-//     thumbs: {
-//         swiper: catalogElementsThumbs,
-//         slideThumbActiveClass: 'active',
-//     },
-//     pagination: {
-//         el: '.swiper-pagination',
-//     },
-//     navigation: { prevEl: '.catalog__element--gallery__prev', nextEl: '.catalog__element--gallery__next', disabledClass: 'disabled' },
-// });
+const anotherPagesSlider = new Swiper('.another-pages .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 25,
+    breakpoints: {
+        1400: {
+            slidesPerView: 3,
+        },
+
+        992: {
+            slidesPerView: 2,
+        },
+
+        768: {
+            slidesPerView: 1,
+        },
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+
+const casesSlider = new Swiper('.cases-slider .swiper', {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    navigation: { prevEl: '.cases-slider__prev', nextEl: '.cases-slider__next', disabledClass: 'disabled' },
+});
+
+const aboutSlider = new Swiper('.about-slider .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: { prevEl: '.about-slider__prev', nextEl: '.about-slider__next', disabledClass: 'disabled' },
+});
+
+Fancybox.bind('[data-fancybox]', {
+   
+});    
