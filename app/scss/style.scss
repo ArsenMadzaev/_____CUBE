@@ -1168,7 +1168,7 @@ svg {
         &__prev, &__next {
             width: rem(74px);
             height: rem(15px);
-            top: 102%;
+            top: 101%;
             bottom: 0;
             @include color(color, black);
             display: none;
@@ -1564,6 +1564,43 @@ svg {
             &--active svg {
                 fill: blue;
             }
+        }
+    }
+
+    .about-directions {
+        margin-bottom: rem(100px);
+
+        &__wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 3rem 2rem;
+        }
+
+        &__item {
+            border: 3px solid $blue;
+            border-radius: rem(20px);
+            padding: rem(35px);
+        }
+
+        &__item-title {
+            display: flex;
+            align-items: center;
+            gap: rem(20px);
+            font-size: rem(25px);
+            font-weight: 700;
+            line-height: rem(25px);
+            margin: 0;
+            @include color(color, blue);
+        }
+
+        &__item-text {
+            display: flex;
+            align-items: center;
+            gap: rem(20px);
+            font-size: rem(18px);
+            font-weight: 400;
+            line-height: rem(21px);
+            margin: 0;
         }
     }
 }
