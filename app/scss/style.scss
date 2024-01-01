@@ -974,7 +974,7 @@ svg {
         padding: rem(40px) rem(20px);
         border-radius: 20px;
         box-shadow: 0px 10px 25px 0px #206FE666;
-
+        margin-bottom: rem(50px);
         
         @include media(min, "sm") {
             padding: rem(40px) rem(100px);
@@ -2173,6 +2173,18 @@ svg {
     &__logo {
         padding: rem(75px) rem(45px);
         text-align: center;
+    }
+}
+
+.sertificate-slider {
+    margin-bottom: rem(70px);
+
+    &__slide {
+        max-width: 500px;
+    }
+
+    &__image {
+        width: 100%;
     }
 }
 

@@ -520,6 +520,26 @@ const aboutSlider = new Swiper('.about-slider .swiper', {
     navigation: { prevEl: '.about-slider__prev', nextEl: '.about-slider__next', disabledClass: 'disabled' },
 });
 
+const sertificateSlider = new Swiper('.sertificate-slider .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 25,
+    breakpoints: {
+        1400: {
+            slidesPerView: 3,
+        },
+
+        992: {
+            slidesPerView: 2,
+        },
+
+        768: {
+            slidesPerView: 1,
+        },
+    },
+});
+
+ 
+
 Fancybox.bind('[data-fancybox]', {
    
 });    
