@@ -740,7 +740,7 @@ svg {
         }
 
         &__item {
-            display: none;
+            //display: none;
             max-width: rem(480px);
             margin: 0 auto;
 
@@ -788,13 +788,14 @@ svg {
         }
 
         &__tabpanel-wrapper {
-            display: grid;  
-            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-            grid-gap: 1rem;
+            margin: 0 auto;
+            // display: grid;  
+            // grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+            // grid-gap: 1rem;
 
-            @include media(min, "md") {
-                grid-template-columns: repeat(auto-fit, minmax(405px, 1fr));
-            }
+            // @include media(min, "md") {
+            //     grid-template-columns: repeat(auto-fit, minmax(405px, 1fr));
+            // }
         }
     }
 

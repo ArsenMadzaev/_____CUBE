@@ -175,40 +175,52 @@ const app = function () {
 
         //Работа с таб фильтром на главной странице
         TabFilter: () => {
-            let tabFilter = document.querySelector('#tabFilter');
+            let filterGrid = document.querySelector('.projects-tabs__tabpanel-wrapper');
+            let iso = new Isotope( filterGrid, {
+                itemSelector: '.projects-tabs__item',
+                layoutMode: 'masonry',
+                masonry: {
+                    columnWidth: 100,
+                    horizontalOrder: true,
+                    isFitWidth: true,
+                    resize: true
+                  }
+            });
 
-            if (tabFilter) {
-                let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
-                let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
-                let tabAccessoryList = {};
+            // let tabFilter = document.querySelector('#tabFilter');
+
+            // if (tabFilter) {
+            //     let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
+            //     let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
+            //     let tabAccessoryList = {};
                 
-                tabList.forEach((tabListItem) => {
-                    tabAccessoryList[tabListItem.id] = [];
+            //     tabList.forEach((tabListItem) => {
+            //         tabAccessoryList[tabListItem.id] = [];
 
-                    tabListItem.addEventListener('click', (e) => {
-                        app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
-                        app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
-                        app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
-                        tabListItem.classList.add('projects-tabs__btn--active');
-                        tabListItem.ariaSelected = 'true';
+            //         tabListItem.addEventListener('click', (e) => {
+            //             app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
+            //             app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
+            //             app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
+            //             tabListItem.classList.add('projects-tabs__btn--active');
+            //             tabListItem.ariaSelected = 'true';
 
-                        for (let tab of tabAccessoryList[tabListItem.id]){
-                            tab.classList.add('projects-tabs__item--active');
-                        }
-                    })
-                })
+            //             for (let tab of tabAccessoryList[tabListItem.id]){
+            //                 tab.classList.add('projects-tabs__item--active');
+            //             }
+            //         })
+            //     })
 
-                tabPanels.forEach((tabPanelItem) => {
-                    let arrayProps = tabPanelItem.dataset.accessory.split(' ');
+            //     tabPanels.forEach((tabPanelItem) => {
+            //         let arrayProps = tabPanelItem.dataset.accessory.split(' ');
 
-                    for(let i = 0; i < arrayProps.length; i++){
-                        tabAccessoryList[arrayProps[i]].push(tabPanelItem);
-                    }
-                })
+            //         for(let i = 0; i < arrayProps.length; i++){
+            //             tabAccessoryList[arrayProps[i]].push(tabPanelItem);
+            //         }
+            //     })
 
-                //Выбирам элемент по дефолту
-                tabList[0].click()
-            }
+            //     //Выбирам элемент по дефолту
+            //     tabList[0].click()
+            // }
         },
         
         /**
@@ -539,7 +551,7 @@ const sertificateSlider = new Swiper('.sertificate-slider .swiper', {
 });
 
  
-
+//fancybox init
 Fancybox.bind('[data-fancybox]', {
    
 });    
