@@ -741,8 +741,13 @@ svg {
 
         &__item {
             //display: none;
-            max-width: rem(480px);
+            width: 100%;
             margin: 0 auto;
+            margin-bottom: rem(20px);
+
+            @include media(min, "sm") {
+                max-width: rem(480px);
+            }
 
             &--active {
                 display: flex;

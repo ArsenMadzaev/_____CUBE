@@ -178,49 +178,53 @@ const app = function () {
             let filterGrid = document.querySelector('.projects-tabs__tabpanel-wrapper');
             let iso = new Isotope( filterGrid, {
                 itemSelector: '.projects-tabs__item',
-                layoutMode: 'masonry',
+                
+
                 masonry: {
                     columnWidth: 100,
                     horizontalOrder: true,
-                    isFitWidth: true,
-                    resize: true
+                    fitWidth: true,
                   }
             });
 
-            // let tabFilter = document.querySelector('#tabFilter');
+            iso.layout();
 
-            // if (tabFilter) {
-            //     let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
-            //     let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
-            //     let tabAccessoryList = {};
+            let tabFilter = document.querySelector('[data-identify="tabFilter"]');
+
+            if (tabFilter) {
+                let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
+                let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
+                let tabAccessoryList = {};
                 
-            //     tabList.forEach((tabListItem) => {
-            //         tabAccessoryList[tabListItem.id] = [];
+                tabList.forEach((tabListItem) => {
+                    tabAccessoryList[tabListItem.id] = [];
 
-            //         tabListItem.addEventListener('click', (e) => {
-            //             app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
-            //             app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
-            //             app.ResetClassOnListItems(tabPanels, 'projects-tabs__item--active');
-            //             tabListItem.classList.add('projects-tabs__btn--active');
-            //             tabListItem.ariaSelected = 'true';
+                    tabListItem.addEventListener('click', (e) => {
+                        app.SetAriaAtrOnListItems(tabList, 'aria-selected', 'false');
+                        app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
+                        tabListItem.classList.add('projects-tabs__btn--active');
+                        tabListItem.ariaSelected = 'true';
+                        
+                        console.log(tabListItem.dataset.filter);
+                        iso.arrange({ filter: `.${tabListItem.dataset.filter}` });
 
-            //             for (let tab of tabAccessoryList[tabListItem.id]){
-            //                 tab.classList.add('projects-tabs__item--active');
-            //             }
-            //         })
-            //     })
+                        // for (let tab of tabAccessoryList[tabListItem.id]){
+                        //     tab.classList.add('projects-tabs__item--active');
+                        // }
+                    })
+                })
 
-            //     tabPanels.forEach((tabPanelItem) => {
-            //         let arrayProps = tabPanelItem.dataset.accessory.split(' ');
+                // tabPanels.forEach((tabPanelItem) => {
+                //     let arrayProps = tabPanelItem.dataset.accessory.split(' ');
 
-            //         for(let i = 0; i < arrayProps.length; i++){
-            //             tabAccessoryList[arrayProps[i]].push(tabPanelItem);
-            //         }
-            //     })
+                //     for(let i = 0; i < arrayProps.length; i++){
+                //         tabAccessoryList[arrayProps[i]].push(tabPanelItem);
+                //     }
+                // })
 
-            //     //Выбирам элемент по дефолту
-            //     tabList[0].click()
-            // }
+                //Выбирам элемент по дефолту
+                // tabList[0].click()
+            }
         },
         
         /**

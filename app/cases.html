@@ -329,99 +329,93 @@
         <!-- page-title end -->
 
         <!-- projects-tabs section -->
-        <section class="projects-tabs projects-tabs--margin-bottom" id="tabFilter">
+        <section class="projects-tabs" data-identify="tabFilter">
             <div class="container">
                 <!-- projects-tabs menu -->
                 <div class="projects-tabs__btn-wrapper" role="tablist" aria-label="Projects">
-                    <button class="projects-tabs__btn" role="tab" aria-selected="true" id="onlineStores">
-                        Интернет-магазин
-                    </button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="eSite">
-                        Корпоративный сайт
-                    </button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="siteCatalog">
-                        Сайт-каталог
-                    </button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="design">
-                        Дизайн
-                    </button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="support">
-                        Техподдержка
-                    </button>
-                    <button class="projects-tabs__btn" role="tab" aria-selected="false" id="marketing">
-                        Маркетинг
-                    </button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="true"
+                        data-filter="onlineStores">Интернет-магазин</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false" data-filter="eSite">Корпоративный
+                        сайт</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false"
+                        data-filter="siteCatalog">Сайт-каталог</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false" data-filter="design">Дизайн</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false"
+                        data-filter="support">Техподдержка</button>
+                    <button class="projects-tabs__btn" role="tab" aria-selected="false"
+                        data-filter="marketing">Маркетинг</button>
                 </div>
                 <!-- projects-tabs menu end -->
                 <!-- projects-tabs tabs -->
                 <div class="projects-tabs__tabpanel-wrapper" aria-label="Selected projects">
                     <!-- projects-tabs tab -->
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores"
-                        data-accessory="onlineStores">
+                    <div class="projects-tabs__item onlineStores marketing eSite" role="tabpanel" aria-labelledby="onlineStores">
                         <a href="#">
-                            <img class="projects-tabs__item-img" src="images/tabsImage/1.png" alt="" />
+                            <img class="projects-tabs__item-img" src="images/tabsImage/1.png" alt="">
                             <h6 class="projects-tabs__item-title">Bossa Nova</h6>
-                            <p class="projects-tabs__item-subtitle">
-                                Интернет-магазин бренда российской детской одежды для
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда российской детской одежды
+                                для
                                 розничной торговли
                             </p>
                         </a>
                     </div>
                     <!-- projects-tabs tab end -->
                     <!-- значения дата атрибута accessory надо записывать через пробел -->
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores design"
-                        data-accessory="onlineStores design">
+                    <div class="projects-tabs__item onlineStores design support" role="tabpanel" aria-labelledby="onlineStores design">
                         <a href="#">
-                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="" />
+                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="">
                             <h6 class="projects-tabs__item-title">Sahar art lab</h6>
-                            <p class="projects-tabs__item-subtitle">
-                                Интернет-магазин бренда авторской женской одежды
-                            </p>
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
                         </a>
                     </div>
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores"
-                        data-accessory="onlineStores">
+                    <div class="projects-tabs__item onlineStores design support" role="tabpanel" aria-labelledby="onlineStores design">
                         <a href="#">
-                            <img class="projects-tabs__item-img" src="images/tabsImage/3.png" alt="" />
-                            <h6 class="projects-tabs__item-title">PRO Туризм</h6>
-                            <p class="projects-tabs__item-subtitle">
-                                Сервис бронирования путевок и объектов размещения
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores"
-                        data-accessory="onlineStores">
-                        <a href="#">
-                            <img class="projects-tabs__item-img" src="images/tabsImage/1.png" alt="" />
-                            <h6 class="projects-tabs__item-title">Bossa Nova</h6>
-                            <p class="projects-tabs__item-subtitle">
-                                Интернет-магазин бренда российской детской одежды для
-                                розничной торговли
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores design"
-                        data-accessory="onlineStores design">
-                        <a href="#">
-                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="" />
+                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="">
                             <h6 class="projects-tabs__item-title">Sahar art lab</h6>
-                            <p class="projects-tabs__item-subtitle">
-                                Интернет-магазин бренда авторской женской одежды
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
+                        </a>
+                    </div>
+                    <div class="projects-tabs__item onlineStores design support" role="tabpanel" aria-labelledby="onlineStores design">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="">
+                            <h6 class="projects-tabs__item-title">Sahar art lab</h6>
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
+                        </a>
+                    </div>
+                    <div class="projects-tabs__item onlineStores design support" role="tabpanel" aria-labelledby="onlineStores design">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/2.png" alt="">
+                            <h6 class="projects-tabs__item-title">Sahar art lab</h6>
+                            <p class="projects-tabs__item-subtitle">Интернет-магазин бренда авторской женской одежды</p>
+                        </a>
+                    </div>
+                    <div class="projects-tabs__item onlineStores siteCatalog eSite" role="tabpanel" aria-labelledby="onlineStores">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/3.png" alt="">
+                            <h6 class="projects-tabs__item-title">PRO Туризм</h6>
+                            <p class="projects-tabs__item-subtitle">Сервис бронирования путевок и объектов размещения
                             </p>
                         </a>
                     </div>
-                    <div class="projects-tabs__item" role="tabpanel" aria-labelledby="onlineStores"
-                        data-accessory="onlineStores">
+                    <div class="projects-tabs__item onlineStores siteCatalog eSite" role="tabpanel" aria-labelledby="onlineStores">
                         <a href="#">
-                            <img class="projects-tabs__item-img" src="images/tabsImage/3.png" alt="" />
+                            <img class="projects-tabs__item-img" src="images/tabsImage/3.png" alt="">
                             <h6 class="projects-tabs__item-title">PRO Туризм</h6>
-                            <p class="projects-tabs__item-subtitle">
-                                Сервис бронирования путевок и объектов размещения
+                            <p class="projects-tabs__item-subtitle">Сервис бронирования путевок и объектов размещения
+                            </p>
+                        </a>
+                    </div>
+                    <div class="projects-tabs__item onlineStores siteCatalog eSite" role="tabpanel" aria-labelledby="onlineStores">
+                        <a href="#">
+                            <img class="projects-tabs__item-img" src="images/tabsImage/3.png" alt="">
+                            <h6 class="projects-tabs__item-title">PRO Туризм</h6>
+                            <p class="projects-tabs__item-subtitle">Сервис бронирования путевок и объектов размещения
                             </p>
                         </a>
                     </div>
                 </div>
                 <!-- projects-tabs tabs end -->
+                <button class="projects-tabs__more-btn button">Посмотреть все проекты</button>
             </div>
         </section>
         <!-- projects-tabs section end -->
