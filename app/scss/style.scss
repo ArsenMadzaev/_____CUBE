@@ -133,6 +133,7 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: 0.15s all;
 
         &::after{
             content: '';
@@ -146,6 +147,7 @@ body {
         &:hover::after {
             left: 5px;
             background-color: $blue;
+            transition: 0.15s all;
         }
     }
 
@@ -166,17 +168,21 @@ body {
         font-weight: 400;
         font-size: rem(17px);
         line-height: rem(20px);
+        transition: 0.15s all;
 
         &:hover {
-            @include color(color, blue)
+            @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
     &__next-lvl {
         cursor: pointer;
+        transition: 0.15s all;
 
         &:hover {
-            @include color(color, blue)
+            @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
@@ -366,13 +372,16 @@ svg {
         text-transform: uppercase;
         position: relative;
         padding: rem(32px) rem(16px);
+        transition: 0.15s all;
 
         & a:hover {
             @include color(color, blue);
+            transition: 0.15s all;
         }
 
         &:hover > a{
             @include color(color, blue);
+            transition: 0.15s all;
         }
 
         @include media("min", "xxl") {
@@ -393,7 +402,7 @@ svg {
         @include color(background-color, white);
         box-shadow: 0 5px 10px rgba($color: #000000, $alpha: .1);
         padding: rem(30px);
-        transition: all 0.2s;
+        transition: all 0.15s;
 
         @include media("min", "xxxl") {
             padding: rem(50px);
@@ -404,6 +413,7 @@ svg {
         opacity: 1;
         display: flex;
         visibility: visible;
+        transition: 0.15s all;
     }
 
     &__dropdown-item {
@@ -411,6 +421,7 @@ svg {
         line-height: rem(18px);
         font-weight: 400;
         padding: 0 rem(15px);
+        transition: 0.15s all;
 
         @include media("min", "xxl") {
             font-size: rem(18px);
@@ -419,6 +430,7 @@ svg {
 
         &:hover {
             @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
@@ -448,6 +460,8 @@ svg {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: 0.15s all;
+
         &::after {
             content: '';
             display: block;
@@ -461,6 +475,7 @@ svg {
         &:hover::after {
             left: 5px;
             background-color: $blue;
+            transition: 0.15s all;
         }
     }
 
@@ -726,11 +741,26 @@ svg {
             font-weight: 600;
             text-transform: uppercase;
             border: 0;
+            padding: 0;
             padding-bottom: rem(5px);
             background-color: transparent;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                display: block;
+                height: 2px;
+                width: 0;
+                background-color: $blue;
+                left: 50%;
+                top: 20px;
+                transform: translate(-50%,0) translateZ(0);
+                transition: width .25s cubic-bezier(.27,.62,.43,1.01);
+            }
             
-            &--active {
-                border-bottom: 2px solid $blue;
+            &--active::before {
+                width: 100%;
             }
         }
 
@@ -1109,6 +1139,7 @@ svg {
             justify-content: flex-end;
             right: 150px;
             left: auto;
+            transition: 0.15s all;
 
             &::after {
                 content: '';
@@ -1116,10 +1147,12 @@ svg {
 
             &:hover {
                 @include color(color, blue);
+                transition: 0.15s all;
             }
         }
 
         &__next {
+            transition: 0.15s all;
 
             &::after {
                 content: '';
@@ -1127,6 +1160,7 @@ svg {
 
             &:hover {
                 @include color(color, blue);
+                transition: 0.15s all;
             }
         }
     }
@@ -1230,17 +1264,19 @@ svg {
 
             &:hover {
                 @include color(color, blue);
+                transition: 0.15s all;
             }
         }
 
         &__next {
-
+            transition: 0.15s all;
             &::after {
                 content: '';
             }
 
             &:hover {
                 @include color(color, blue);
+                transition: 0.15s all;
             }
         }
     }
@@ -1882,9 +1918,11 @@ svg {
         font-weight: 400;
         font-size: rem(18px);
         line-height: rem(21px);
+        transition: 0.15s all;
 
         &:hover {
             @include color(color, blue);
+            transition: 0.15s all;
         }
 
         &--bold {
@@ -1902,8 +1940,10 @@ svg {
     }
 
     &__social-item {
+        transition: 0.15s all;
         &:hover {
             opacity: 0.8;
+            transition: 0.15s all;
         }
     }
 
@@ -1913,6 +1953,7 @@ svg {
         gap: rem(12px);
         font-weight: 700;
         font-size: rem(22px);
+        transition: 0.15s all;
 
         svg{
             @include color(color, blue);
@@ -1925,6 +1966,7 @@ svg {
         &:hover{
             @include color(color, blue);
             opacity: .9;
+            transition: 0.15s all;
         }
     }
 
@@ -2332,9 +2374,11 @@ svg {
     font-size: rem(20px);
     line-height: rem(24px);
     @include color(color, black);
+    transition: 0.15s all;
 
     &:hover {
-        @include color(color, blue)
+        @include color(color, blue);
+        transition: 0.15s all;
     }
 }
 
@@ -2343,9 +2387,11 @@ svg {
     font-size: rem(16px);
     line-height: rem(18px);
     @include color(color, black);
+    transition: 0.15s all;
 
     &:hover {
-        @include color(color, blue)
+        @include color(color, blue);
+        transition: 0.15s all;
     }
 }
 
@@ -2370,13 +2416,16 @@ svg {
     min-height: rem(47px);
     font-weight: 600;
     font-size: rem(16px);
+    transition: 0.15s all;
 
     &:hover {
         opacity: .8;
+        transition: 0.15s all;
     }
 
     &:disabled {
         opacity: 1;
+        transition: 0.15s all;
     }
 
     &--submit {
@@ -2388,6 +2437,7 @@ svg {
         &:hover {
             opacity: 1;
             @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
