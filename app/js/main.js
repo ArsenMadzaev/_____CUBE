@@ -71,7 +71,7 @@ const app = function () {
                         innerList = innerList.querySelector('.mobile-menu__inner-items');
                         innerList.classList.add('show')
                         let mobileMenuWrapper = document.querySelector('.mobile-menu__wrapper');
-                        mobileMenuWrapper.style.transform = 'translate(-100%)';
+                        mobileMenuWrapper.classList.add('mobile-menu__lvl-2--open');
                     });
                 });
             }
@@ -82,7 +82,7 @@ const app = function () {
                         let innerList = e.target.closest('.mobile-menu__inner-items');
                         innerList.classList.remove('show')
                         let mobileMenuWrapper = document.querySelector('.mobile-menu__wrapper');
-                        mobileMenuWrapper.style.transform = 'translate(0%)';
+                        mobileMenuWrapper.classList.remove('mobile-menu__lvl-2--open');
                     });
                 });
             }

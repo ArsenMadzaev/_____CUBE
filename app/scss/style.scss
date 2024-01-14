@@ -118,7 +118,7 @@ body {
     flex-direction: column;
 
     &__wrapper {
-        transition: transform 0.9s ease-in-out;
+        transition: transform 0.5s ease-in-out;
         height: 100%;
         padding: rem(30px);
     }
@@ -201,6 +201,10 @@ body {
         @include color(color, blue)
     }
 
+    &__lvl-2--open {
+        transform: translate(-100%);
+    }
+
     &__inner-items {
         left: 100%;
         top: 0;
@@ -216,7 +220,7 @@ body {
         background: #FFF;
         margin: 0;
         padding: rem(30px);
-        transition: opacity 1s, visibility 0s linear 1s;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
     }
     
     &__head, &__inner-head {
@@ -776,6 +780,14 @@ svg {
             margin-bottom: rem(20px);
 
             @include media(min, "sm") {
+                max-width: rem(400px);
+            }
+
+            @include media(min, "lg") {
+                max-width: rem(390px);
+            }
+
+            @include media(min, "xxxxl") {
                 max-width: rem(480px);
             }
 
@@ -1643,6 +1655,61 @@ svg {
         }
     }
 
+    .blog-detail {
+        & p {
+            font-size: rem(16px);
+            font-weight: 500;
+            line-height: rem(25px);
+            margin-bottom: rem(25px);
+        
+            @include media("min", "sm") {
+                font-size: rem(18px);
+            }
+        }
+
+        & a {
+            display: block;
+            font-size: rem(18px);
+            font-weight: 500;
+            line-height: rem(30px);
+            text-decoration: underline;
+            @include color(color, blue);
+            margin-bottom: rem(25px);
+        }
+
+        & ul {
+            font-size: rem(16px);
+            font-weight: 500;
+            line-height: rem(25px);
+            margin-bottom: rem(25px);
+
+            @include media("min", "sm") {
+                font-size: rem(18px);
+            }
+
+            & h6 {
+                font-size: rem(16px);
+                font-weight: 500;
+                line-height: rem(25px);
+        
+                @include media("min", "sm") {
+                    font-size: rem(18px);
+                }
+            }
+        
+            & li::before {
+                content:  "—";
+                position: relative;
+                margin-right: rem(5px);
+            }
+        
+            & li:first-child::before {
+                content:  "";
+                margin-right: 0;
+            }
+        }
+    }
+
     .about-directions {
         margin-bottom: rem(100px);
 
@@ -1920,7 +1987,7 @@ svg {
         line-height: rem(21px);
         transition: 0.15s all;
 
-        &:hover {
+        & a:hover {
             @include color(color, blue);
             transition: 0.15s all;
         }
@@ -2375,6 +2442,7 @@ svg {
     line-height: rem(24px);
     @include color(color, black);
     transition: 0.15s all;
+    width: fit-content;
 
     &:hover {
         @include color(color, blue);
@@ -2388,6 +2456,7 @@ svg {
     line-height: rem(18px);
     @include color(color, black);
     transition: 0.15s all;
+    width: fit-content;
 
     &:hover {
         @include color(color, blue);
