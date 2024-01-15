@@ -10,7 +10,6 @@ const app = function () {
                 app.arrowTop(),
                 app.ClickOutside(),
                 app.FeedbackForm(),
-                app.ReadMore(),
                 app.Accordion(),
                 app.ScrollHeaderFix(),
                 app.ScrolltoObject(),
@@ -176,22 +175,23 @@ const app = function () {
         //Работа с таб фильтром на главной странице
         TabFilter: () => {
             let filterGrid = document.querySelector('.projects-tabs__tabpanel-wrapper');
-            let iso = new Isotope( filterGrid, {
-                itemSelector: '.projects-tabs__item',
-                
-
-                masonry: {
-                    columnWidth: 100,
-                    horizontalOrder: true,
-                    fitWidth: true,
-                  }
-            });
-
-            iso.layout();
 
             let tabFilter = document.querySelector('[data-identify="tabFilter"]');
 
             if (tabFilter) {
+                let iso = new Isotope( filterGrid, {
+                    itemSelector: '.projects-tabs__item',
+                    
+    
+                    masonry: {
+                        columnWidth: 100,
+                        horizontalOrder: true,
+                        fitWidth: true,
+                      }
+                });
+    
+                iso.layout();
+
                 let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
                 let tabPanels = tabFilter.querySelectorAll('[role=tabpanel]')
                 let tabAccessoryList = {};
@@ -204,8 +204,6 @@ const app = function () {
                         app.ResetClassOnListItems(tabList, 'projects-tabs__btn--active');
                         tabListItem.classList.add('projects-tabs__btn--active');
                         tabListItem.ariaSelected = 'true';
-                        
-                        console.log(tabListItem.dataset.filter);
                         iso.arrange({ filter: `.${tabListItem.dataset.filter}` });
 
                         // for (let tab of tabAccessoryList[tabListItem.id]){
@@ -320,74 +318,204 @@ const app = function () {
             }
         },
 
-        // Форма аутентификации
+        // Форма обратной связи
         FeedbackForm: () => {
-            let button = document.querySelector('button[type="submit"].header__personal--auth__submit');
-            if(button){
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (app.FormControl(e.target)) {
-                        console.log('Отправляем форму Auth')
-                    }
+            const forms = document.querySelectorAll('[data-form="feedback"]');
+
+            if (forms) {
+                forms.forEach((form) => {
+                    let button = form.querySelector('button[type="submit"]');
+                    let inputsForm = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"])');
+                    let areaText = form.querySelector('textarea');
+                    let checkbox = form.querySelector('input[type="checkbox"]');
+
+                    app.FormValidate();
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if(app.FormControl(button)){
+                            let form_result = form.querySelector('.form-result');
+                            let sendData = new FormData(form);        
+                            
+                            button.classList.add('loading');
+                            button.setAttribute('disabled', '');
+                
+                            FetchRequest('test.php', sendData)
+                                .then(data => {
+                                    //Состояния кнопки отправки
+                                    button.classList.remove('loading');
+                                    button.removeAttribute('disabled');
+                                    //Сброс полей формы
+                                    for(i=0; i < inputsForm.length; i++) {
+                                        inputsForm[i].value = '';
+                                    }
+                                    checkbox.checked = 'false';
+                                    areaText.value = '';
+                                    //Если статус успешно
+                                    if (data.status) {
+                                    //Логика успешного статуса
+                                    }
+                                    //Если статус неудачно
+                                    if (!data.status) {
+                                        form_result.innerHTML = data.text;
+                                    }
+                                    
+                                })
+                                .catch(error => {
+                                    //Сброс полей формы
+                                    for(i=0; i < inputsForm.length; i++) {
+                                        inputsForm[i].value = '';
+                                    }
+                                    areaText.value = '';
+                                    checkbox.checked = 'false';
+                                    //Состояния кнопки отправки
+                                    button.classList.remove('loading');
+                                    button.removeAttribute('disabled');
+                                    form_result.textContent = `Ошибка - ${error}`;
+                                })
+                        }
+                    })
                 })
             }
+        },
+
+        /**
+         * Функция для Fetch запросов. Ошибки нужно рендерить через .error запроса, либо вызывать try/catch при запросе
+         * @param {string} url - Адрес обработчика
+         * @param {string} data - Данные
+        */
+        FetchRequest: (url, data) => {
+            // Если это FormData.
+            if (data.constructor.name === "FormData") {
+            let FormData = Object.fromEntries(data.entries());
+            data = JSON.stringify(FormData);
+            } else {
+            data = JSON.stringify(data);
+            }
+            let RequestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: data,
+            };
+            return fetch(url, RequestOptions).then((response) => response.json());
+        },
+
+        //Функция валидации ввода
+        FormValidate: () => {
+            [].forEach.call(document.querySelectorAll('[type="phone"]'), function (input) {
+                let keyCode;
+              
+                function mask(event) {
+                  event.keyCode && (keyCode = event.keyCode);
+                  let pos = this.selectionStart;
+              
+                  if (pos < 3) event.preventDefault();
+              
+                  let matrix = "+7 (___)-___-__-__",
+                    i = 0,
+                    def = matrix.replace(/\D/g, ""),
+                    val = this.value.replace(/\D/g, ""),
+                    new_value = matrix.replace(/[_\d]/g, function (a) {
+                      return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
+                    });
+              
+                  i = new_value.indexOf("_");
+              
+                  if (i != -1) {
+                    i < 5 && (i = 3);
+                    new_value = new_value.slice(0, i);
+                  }
+              
+                  let reg = matrix
+                    .substr(0, this.value.length)
+                    .replace(/_+/g, function (a) {
+                      return "\\d{1," + a.length + "}";
+                    })
+                    .replace(/[+()]/g, "\\$&");
+              
+                  reg = new RegExp("^" + reg + "$");
+              
+                  if (
+                    !reg.test(this.value) ||
+                    this.value.length < 5 ||
+                    (keyCode > 47 && keyCode < 58)
+                  )
+                    this.value = new_value;
+              
+                  if (event.type == "blur" && this.value.length < 5) this.value = "";
+                }
+              
+                ['input', 'focus', 'blur', 'keydown'].forEach((event) => input.addEventListener(event, mask, false));
+            });
+
+            [].forEach.call(document.querySelectorAll('[type="text"]'), function (input) {
+                let keyCode;
+            
+                function mask(event) {
+                    event.keyCode && (keyCode = event.keyCode);
+                    let pos = this.selectionStart;
+            
+                    if (pos < 3 && event.key.length === 1 && !event.key.match(/[а-яА-Я]/)) {
+                        event.preventDefault();
+                        return;
+                    }
+            
+                    let val = this.value.replace(/[^а-яА-Я]/g, ""); // Только русские буквы
+            
+                    if (val.length > 0) {
+                        this.value = val;
+                    } else if (event.type == "blur" && this.value.length < 5) {
+                        this.value = "";
+                    }
+                }
+            
+                ['input', 'focus', 'blur', 'keydown'].forEach((event) => input.addEventListener(event, mask, false));
+            });
         },
         
         /**
          * Для проверки форм (Если обратить внимание, то он находит родителей кнопки). Семантика обязательно должна быть соблюдена!!!
          * @param {object} itemSubmit - Элемент отправки формы
         */
-        FormControl: (itemSubmit) => {
+        FormControl: (item__submit) => {
             let result = [],
                 find__error = false
-            let children = Array.from(itemSubmit.parentElement);
+            let children = item__submit.closest('form');
+
             for (i = 0; i < children.length; i++) {
-                if (children[i].hasAttribute('aria-required')) {
+                if (children[i].hasAttribute('required')) {
                     if (children[i].value === '') {
-                        children[i].classList.add('error');
+                      
+                        children[i].parentNode.classList.add('error');
+                        result += false;
+                    }
+                    else if (children[i].type === 'phone' && children[i].value.length < 18) {
+                        children[i].parentNode.classList.add('error');
+                        result += false;
+                    }
+                    else if (children[i].type === 'email' && !(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(String(children[i].value).toLowerCase()))) {
+                        children[i].parentNode.classList.add('error');
                         result += false;
                     }
                     else if (children[i].type === 'checkbox' && !children[i].checked) {
-                        children[i].classList.add('error');
+                        children[i].parentNode.classList.add('error');
                         result += false;
                     }
                     else {
-                        children[i].classList.remove('error');
+                        children[i].parentNode.classList.remove('error');
                         result += true;
                     }
                 }
             }
-            for (i = 0; i < children.length; i++) {
-                if(children[i].classList.contains('error')){
-                    children[i].parentElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    return false;
-                }
-            }
-            find__error = result.match(/false/);
-            if (find__error === null) {
+            find__error = result.includes(false);
+            if (find__error === false) {
                 find__error = true
             }
             else {
                 find__error = false
             }
             return find__error;
-        },
-        // Читать полностью
-        ReadMore: () => {
-            let item = document.querySelectorAll('[data-readmore]');
-            for (i = 0; i < item.length; i++) {
-                item[i].addEventListener('click', (e) => {
-                    if (e.target.textContent === e.target.dataset.readmore) {
-                        e.target.textContent = 'Скрыть';
-                    }
-                    else if (e.target.classList.contains('collapsed')) {
-                        e.target.textContent = e.target.dataset.readmore;
-                    }
-                })
-            }
         },
         
         // Проверим, мобилка ли

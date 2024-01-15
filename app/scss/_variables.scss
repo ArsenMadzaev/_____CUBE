@@ -26,6 +26,7 @@ $silver: #9198A7 !default;
 $blue: #206FE6 !default;
 $dark-silver: #788399 !default;
 $footer-silver: #F2F3F5 !default;
+$error-color: #FF9D9D !default;
 
 // Цвета для генерации
 $colors: (
@@ -35,6 +36,7 @@ $colors: (
 "blue": $blue,
 "dark-silver": $dark-silver,
 "footer-silver": $footer-silver,
+"error-color": $error-color,
 ) !default;
 // Для геренации font-face
 $font-face: (

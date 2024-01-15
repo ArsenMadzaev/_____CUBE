@@ -1419,7 +1419,7 @@ svg {
         }
 
         &__item--active > .accordion__body {
-            max-height: none;
+            max-height: 99em;
             overflow: visible;
             transition: 1s all;
             opacity: 1;
@@ -1437,6 +1437,7 @@ svg {
             display: flex;
             align-items: center;
             gap: rem(20px);
+            cursor: pointer;
         }
 
         &__header-title {
@@ -2518,9 +2519,30 @@ svg {
     }
 }
 
+.form-result {
+    @include color(color, white);
+    width: 100%;
+    font-size: rem(16px);
+    line-height: rem(19px);
+}
+
+.error > input{
+    border: 1px solid $error-color;
+    @include color(color, error-color);
+}
+
+.error > label {
+    @include color(color, error-color);
+}
+
+.error > input[type=checkbox]+label:after {
+    border: 1px solid $error-color;
+}
+
 .loading {
     @include color(color, blue);
     @include color(background-color, blue);
+
     &::after {
         content: "";
         position: absolute;

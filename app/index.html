@@ -603,27 +603,28 @@
                         <h4 class="form-feedback__title">Обсудить проект</h4>
                         <p class="form-feedback__subtitle">Заполните форму и мы свяжемся с вами в ближайшее время.
                             Консультируем бесплатно.</p>
-                        <form class="form">
+                        <form class="form" data-form="feedback">
                             <div class="form__inputs">
                                 <div class="form__input">
                                     <label class="form__field-label" for="name">Ваше имя*</label>
-                                    <input class="form__text-field" type="text" name="name" id="name">
+                                    <input class="form__text-field" type="text" name="name" id="name" required>
                                 </div>
                                 <div class="form__input">
                                     <label class="form__field-label" for="phone">Ваш телефон*</label>
-                                    <input class="form__text-field" type="phone" name="phone" id="phone" placeholder="+7 (___) ___-__-__">
+                                    <input class="form__text-field" type="phone" name="phone" id="phone" placeholder="+7 (___) ___-__-__" required>
                                 </div>
                                 <div class="form__input form__input--email">
                                     <label class="form__field-label" for="email">Ваш email*</label>
-                                    <input class="form__text-field" type="email" name="email" id="email">
+                                    <input class="form__text-field" type="email" name="email" id="email" required>
                                 </div>
                                 <div class="form__input form__input--textarea">
                                     <label class="form__field-label" for="message">Сообщение</label>
                                     <textarea class="form__text-field" type="text" name="message" id="message" rows="5"
                                         cols="33"></textarea>
                                 </div>
+                                <div class="form-result"></div>
                                 <div class="form__input form__input--checkbox">
-                                    <input class="form__text-field" type="checkbox" name="policy" id="policy">
+                                    <input class="form__text-field" type="checkbox" name="policy" id="policy" required>
                                     <label class="form__field-label" for="policy">Нажимая кнопку «Отправить», вы
                                         соглашаетесь с политикой обработки ваших персональных данных</label>
                                 </div>
@@ -756,27 +757,28 @@
                     <h4 class="popup__title form-feedback__title">Обсудить проект</h4>
                     <p class="popup__subtitle form-feedback__subtitle">Заполните форму и мы свяжемся с вами в ближайшее время.
                         Консультируем бесплатно.</p>
-                    <form class="form">
+                    <form class="form" data-form="feedback">
                         <div class="form__inputs">
                             <div class="form__input">
                                 <label class="form__field-label" for="popupName">Ваше имя*</label>
-                                <input class="form__text-field" type="text" name="name" id="popupName">
+                                <input class="form__text-field" type="text" name="name" id="popupName" required>
                             </div>
                             <div class="form__input">
                                 <label class="form__field-label" for="popupPhone">Ваш телефон*</label>
-                                <input class="form__text-field" type="phone" name="phone" id="popupPhone" placeholder="+7 (___) ___-__-__">
+                                <input class="form__text-field" type="phone" name="phone" id="popupPhone" placeholder="+7 (___) ___-__-__" required>
                             </div>
                             <div class="form__input form__input--email">
                                 <label class="form__field-label" for="popupEmail">Ваш email*</label>
-                                <input class="form__text-field" type="email" name="email" id="popupEmail">
+                                <input class="form__text-field" type="email" name="email" id="popupEmail" required>
                             </div>
                             <div class="form__input form__input--textarea">
                                 <label class="form__field-label" for="popupMessage">Сообщение</label>
                                 <textarea class="form__text-field" type="text" name="message" id="popupMessage" rows="5"
                                     cols="33"></textarea>
                             </div>
+                            <div class="form-result"></div>
                             <div class="form__input form__input--checkbox">
-                                <input class="form__text-field" type="checkbox" name="policy" id="popupPolicy">
+                                <input class="form__text-field" type="checkbox" name="policy" id="popupPolicy" required>
                                 <label class="form__field-label" for="popupPolicy">Нажимая кнопку «Отправить», вы
                                     соглашаетесь с политикой обработки ваших персональных данных</label>
                             </div>
