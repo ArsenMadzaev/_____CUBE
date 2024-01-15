@@ -530,6 +530,10 @@ svg {
         @include media("min", "xxl") {
             padding-right: rem(30px);
         }
+
+        & > a:hover {
+            @include color(color, blue);
+        }
     }
 
     &__mobile-buttons {
@@ -2098,6 +2102,10 @@ svg {
 
         @include media(min, "xl") {
             text-align: left;
+        }
+
+        & > a:hover {
+            @include color(color, blue);
         }
     }
 
