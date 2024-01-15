@@ -383,10 +383,10 @@ svg {
             transition: 0.15s all;
         }
 
-        &:hover > a{
-            @include color(color, blue);
-            transition: 0.15s all;
-        }
+        // &:hover > a{
+        //     @include color(color, blue);
+        //     transition: 0.15s all;
+        // }
 
         @include media("min", "xxl") {
             padding: rem(44px) rem(20px);
@@ -432,7 +432,7 @@ svg {
             line-height: rem(21px);
         }
 
-        &:hover {
+        & a:hover {
             @include color(color, blue);
             transition: 0.15s all;
         }
@@ -508,6 +508,12 @@ svg {
         
     }
 
+    &__dropdown-child &__dropdown-title--lvl2, &__dropdown-child &__dropdown-item {
+        text-transform: none;
+        padding: 0 rem(15px);
+        margin: 0;
+    }
+
     &__dropdown-title--lvl2 {
         font-size: rem(20px);
         line-height: rem(20px);
@@ -566,6 +572,10 @@ svg {
         @include media("min", "xl") {
             display: none;
         }
+
+        &:hover {
+            @include color(color, blue);
+        }
     }
 
     &__call-button {
@@ -573,6 +583,10 @@ svg {
 
         @include media("min", "xl") {
             display: none;
+        }
+
+        &:hover {
+            @include color(color, blue)
         }
     }
 
@@ -2476,8 +2490,16 @@ svg {
 .selected {
 
     &--dropdown {
-        background-color: #D9D9D9;
+        @include color(color, blue);
+        // background-color: #D9D9D9;
+
+        &::after {
+            left: 5px;
+            background-color: #206fe6 !important;
+            transition: .15s all;
+        }
     }
+
 }
 
 //button blocks
