@@ -8,7 +8,7 @@
 @each $key, $value in $font-face{
     @font-face {
         font-family: 'Gilroy';
-        src: url("fonts/Gilroy-#{$key}.woff2") format('woff2'), url("fonts/Gilroy-#{key}.woff");font-weight: $value;font-style: normal;font-display: swap;
+        src: url("../fonts/Gilroy-#{$key}.woff2") format('woff2'), url("fonts/Gilroy-#{key}.woff");font-weight: $value;font-style: normal;font-display: swap;
     }          
 }
 // Генерация колоночной системы как в Bootstrap col-#{size}-#{$i}
