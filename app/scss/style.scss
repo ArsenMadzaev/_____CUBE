@@ -290,9 +290,19 @@ svg {
         width: 100%;
         @include color(color, white);
         @include color(background-color, black);
+        animation: slideHeader 0.5s;
 
         .header__logo {
             @include color(color, white);
+        }
+    }
+
+    @keyframes slideHeader {
+        from {
+            top: -70px;
+        }
+        to {
+            top: 0;
         }
     }
 
@@ -532,6 +542,7 @@ svg {
         font-size: rem(20px);
         line-height: rem(24px);
         padding-right: rem(10px);
+        transition: 0.15s all;
 
         @include media("min", "xxl") {
             padding-right: rem(30px);
@@ -539,6 +550,7 @@ svg {
 
         & > a:hover {
             @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
@@ -568,6 +580,7 @@ svg {
 
     &__menu-button {
         cursor: pointer;
+        transition: 0.15s all;
 
         @include media("min", "xl") {
             display: none;
@@ -575,18 +588,21 @@ svg {
 
         &:hover {
             @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
     &__call-button {
         cursor: pointer;
+        transition: 0.15s all;
 
         @include media("min", "xl") {
             display: none;
         }
 
         &:hover {
-            @include color(color, blue)
+            @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
@@ -1287,6 +1303,7 @@ svg {
             justify-content: flex-end;
             right: 150px;
             left: auto;
+            transition: 0.15s all;
 
             &::after {
                 content: '';
@@ -2108,6 +2125,7 @@ svg {
     &__contact-content {
         font-size: rem(16px);
         text-align: center;
+        transition: 0.15s all;
         @include color(color, black);
 
         @include media(min, "md") {
@@ -2120,6 +2138,7 @@ svg {
 
         & > a:hover {
             @include color(color, blue);
+            transition: 0.15s all;
         }
     }
 
