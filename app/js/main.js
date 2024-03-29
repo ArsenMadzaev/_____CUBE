@@ -124,6 +124,16 @@ const app = function () {
                 });
             }
         },
+
+        Debounce: (func, delay) => {
+            let timeout;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), delay);
+            };
+        },
         
         //Работа с dropdown меню хедера
         NavbarDropDown: () => { 
@@ -131,15 +141,29 @@ const app = function () {
             const navbar = Array.from(document.querySelectorAll('.header__navbar-list .header__navbar-item'));
             navbar.forEach((navbarItem) => {
                 if (navbarItem.querySelector('.header__dropdown-wrapper')) {
-                    navbarItem.addEventListener('mouseover', (e) => {
+                    const show = app.Debounce(() => {
                         body.classList.add('show__dropdown');
-                    })
+                    }, 100)
 
-                    navbarItem.addEventListener('mouseout', (e) => {
+                    const hide = app.Debounce(() => {
                         body.classList.remove('show__dropdown');
-                    })
+                    }, 100)
+                    
+                    navbarItem.addEventListener('mouseenter', show)
+
+                    navbarItem.addEventListener('mouseleave', hide)
+                    
+                    // navbarItem.addEventListener('mouseover', (e) => {
+                    //     body.classList.add('show__dropdown');
+                    // })
+
+                    // navbarItem.addEventListener('mouseout', (e) => {
+                    //     body.classList.remove('show__dropdown');
+                    // })
                 }
             })
+
+            
 
             //Вешаем события на элементы выпадающего списка
             const wrappersList = document.querySelectorAll('.header__dropdown-wrapper');

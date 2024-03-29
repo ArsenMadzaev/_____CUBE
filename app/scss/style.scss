@@ -428,6 +428,18 @@ svg {
         display: flex;
         visibility: visible;
         transition: 0.15s all;
+        animation: showDrop 0.5s;
+
+        @keyframes showDrop {
+            from {
+                transform: translateY(-20px);
+                opacity: 0.25;
+            }
+            to {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
     }
 
     &__dropdown-item {
@@ -516,6 +528,16 @@ svg {
         height: 100%;
         width: 100%;
         
+        animation: showNextLvlDrop 0.5s;
+
+        @keyframes showNextLvlDrop {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     }
 
     &__dropdown-child &__dropdown-title--lvl2, &__dropdown-child &__dropdown-item {
