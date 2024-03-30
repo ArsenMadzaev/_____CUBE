@@ -141,25 +141,25 @@ const app = function () {
             const navbar = Array.from(document.querySelectorAll('.header__navbar-list .header__navbar-item'));
             navbar.forEach((navbarItem) => {
                 if (navbarItem.querySelector('.header__dropdown-wrapper')) {
-                    const show = app.Debounce(() => {
-                        body.classList.add('show__dropdown');
-                    }, 100)
-
-                    const hide = app.Debounce(() => {
-                        body.classList.remove('show__dropdown');
-                    }, 100)
-                    
-                    navbarItem.addEventListener('mouseenter', show)
-
-                    navbarItem.addEventListener('mouseleave', hide)
-                    
-                    // navbarItem.addEventListener('mouseover', (e) => {
+                    // const show = app.Debounce(() => {
                     //     body.classList.add('show__dropdown');
-                    // })
+                    // }, 100)
 
-                    // navbarItem.addEventListener('mouseout', (e) => {
+                    // const hide = app.Debounce(() => {
                     //     body.classList.remove('show__dropdown');
-                    // })
+                    // }, 100)
+                    
+                    // navbarItem.addEventListener('mouseenter', show)
+
+                    // navbarItem.addEventListener('mouseleave', hide)
+                    
+                    navbarItem.addEventListener('mouseenter', (e) => {
+                        body.classList.add('show__dropdown');
+                    })
+
+                    navbarItem.addEventListener('mouseleave', (e) => {
+                        body.classList.remove('show__dropdown');
+                    })
                 }
             })
 
@@ -180,10 +180,12 @@ const app = function () {
                     let dropdown = element.querySelector('.header__dropdown-list--lvl2');
                     if (dropdown != null) {
                         element.addEventListener('mouseover', (e) => {
-                            app.ResetClassOnListItems(items, 'selected--dropdown')
-                            element.classList.add('selected--dropdown')
-                            twoLvlWrap.innerHTML = '';
-                            twoLvlWrap.appendChild(dropdown); 
+                            if (!e.currentTarget.classList.contains('selected--dropdown')) {
+                                app.ResetClassOnListItems(items, 'selected--dropdown')
+                                element.classList.add('selected--dropdown')
+                                twoLvlWrap.innerHTML = '';
+                                twoLvlWrap.appendChild(dropdown); 
+                            }
                         })
                         element.addEventListener('mouseuout', (e) => {
                             app.ResetClassOnListItems(items, 'selected--dropdown')
