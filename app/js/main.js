@@ -198,6 +198,7 @@ const app = function () {
             });
         },
 
+
         //Работа с таб фильтром на главной странице
         TabFilter: () => {
             let filterGrid = document.querySelector('.projects-tabs__tabpanel-wrapper');
@@ -207,15 +208,13 @@ const app = function () {
             if (tabFilter) {
                 let iso = new Isotope( filterGrid, {
                     itemSelector: '.projects-tabs__item',
-                    
-    
                     masonry: {
                         columnWidth: 100,
                         horizontalOrder: true,
                         fitWidth: true,
-                      }
+                    }
                 });
-    
+
                 iso.layout();
 
                 let tabList = tabFilter.querySelectorAll('[role=tablist] > [role=tab]');
@@ -231,7 +230,6 @@ const app = function () {
                         tabListItem.classList.add('projects-tabs__btn--active');
                         tabListItem.ariaSelected = 'true';
                         iso.arrange({ filter: `.${tabListItem.dataset.filter}` });
-
                         // for (let tab of tabAccessoryList[tabListItem.id]){
                         //     tab.classList.add('projects-tabs__item--active');
                         // }
@@ -245,9 +243,29 @@ const app = function () {
                 //         tabAccessoryList[arrayProps[i]].push(tabPanelItem);
                 //     }
                 // })
+                window.addEventListener('resize', (e) => {
+                    console.log()
+                    iso.layout();
+                });
 
+                const initIso = app.Debounce(() => {
+                    let retSelect = document.querySelector('[aria-selected="true"]');
+                    console.log(retSelect.dataset.filter);
+                    iso.arrange({ filter: `.${retSelect.dataset.filter}` });
+                    iso.layout();
+                }, 100)
+                window.addEventListener('resize', initIso);
                 //Выбирам элемент по дефолту
-                // tabList[0].click()
+
+                window.addEventListener('load', () => {
+                    iso.layout();
+    
+                    if (tabList[0]){
+                        tabList[0].click()
+                    }
+                    // iso.arrange({ filter: `.onlineStores` });
+                });
+                
             }
         },
         
@@ -429,7 +447,7 @@ const app = function () {
 
         //Функция валидации ввода
         FormValidate: () => {
-            [].forEach.call(document.querySelectorAll('[type="phone"]'), function (input) {
+            [].forEach.call(document.querySelectorAll('[type="tel"]'), function (input) {
                 let keyCode;
               
                 function mask(event) {
@@ -482,12 +500,12 @@ const app = function () {
                     event.keyCode && (keyCode = event.keyCode);
                     let pos = this.selectionStart;
             
-                    if (pos < 3 && event.key.length === 1 && !event.key.match(/[а-яА-Я]/)) {
+                    if (pos < 3 && event.key.length === 1 && !event.key.match(/[а-яА-Я\s]/)) {
                         event.preventDefault();
                         return;
                     }
             
-                    let val = this.value.replace(/[^а-яА-Я]/g, ""); // Только русские буквы
+                    let val = this.value.replace(/[^а-яА-Я\s]/g, ""); // Только русские буквы
             
                     if (val.length > 0) {
                         this.value = val;
@@ -512,11 +530,10 @@ const app = function () {
             for (i = 0; i < children.length; i++) {
                 if (children[i].hasAttribute('required')) {
                     if (children[i].value === '') {
-                      
                         children[i].parentNode.classList.add('error');
                         result += false;
                     }
-                    else if (children[i].type === 'phone' && children[i].value.length < 18) {
+                    else if (children[i].type === 'tel' && children[i].value.length < 18) {
                         children[i].parentNode.classList.add('error');
                         result += false;
                     }
