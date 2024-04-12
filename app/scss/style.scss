@@ -952,12 +952,25 @@ svg {
             border-radius: rem(20px);
             box-sizing: border-box;
             box-shadow: 0px 4px 50px 0px #203D772B;
+            transition: 0.3s all;
+
+            &:hover {
+                box-shadow: 0px 4px 50px 0px rgba(24, 108, 235, 0.3);
+                transition: 0.3s all;
+                & .directions__item-arrow {
+                    transform: translate(10px);
+                }
+            }
+            
             
         }
 
         &__item-text {
             max-width: 100%;
+            position: relative;
             padding: rem(40px);
+            padding-bottom: rem(55px);
+
             @include media(min, "md") {
                 max-width: rem(320px);
             }
@@ -986,6 +999,13 @@ svg {
             font-size: rem(16px);
             line-height: rem(19px);
             font-weight: 400;
+        }
+
+        &__item-arrow {
+            @include color(color, blue);
+            position: absolute;
+            bottom: rem(35px);
+            transition: 0.3s all;
         }
 
         &__img-wrapper {
